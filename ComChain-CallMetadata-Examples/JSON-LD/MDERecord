@@ -1,0 +1,27 @@
+{
+   "$schema":"http://comchainalliance.org/schema/MDERecord",
+   "type":"object",
+   "properties":{
+      "id":{
+         "type":"string"
+      },
+      "product":{
+         "$ref":"http://comchainalliance.org/schema/Product"
+      },
+      "provider":{
+         "$ref":"http://comchainalliance.org/schema/Member"
+      },
+      "fields":{
+         "$ref":"http://comchainalliance.org/schema/comChain"
+      },
+      "hash": {
+         "type":"string"
+      },
+      "jsonPath": {
+         "type":"string"
+      },
+      "transactionHash": {
+         "type":"string"
+      }
+   }
+}
