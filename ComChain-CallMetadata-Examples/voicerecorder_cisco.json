@@ -1,0 +1,16 @@
+{
+   "type":"voicerecorder",
+   "comid":"3019-SEP000C293D54DF-30975651",
+   "profileid":"SEP000C293D54DF",
+   "site":"",
+   "starttimestamp":"2018-10-15 22:51:07.783",
+   "sourceaddress":"3019",
+   "destinationaddress":"",
+   "duration":4,
+   "filestoragelocation":"2018\\10\\15\\cd1a2ef5-d0cc-11e8-9955-000c29dd7443_(20181015225107784).wav",
+   "archivedate":"2023-10-15",
+   "filehash":{
+      "hash":"ffb84e7a2259d638bf3eab243f8e93f2d329ee140b20efaa7a2447bd1722853c",
+      "type":"SHA-256"
+   }
+}
