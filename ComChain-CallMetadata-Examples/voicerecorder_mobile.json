@@ -1,15 +1,34 @@
 {
-   "type":"voicerecorder",
-   "comid":"447458650571-324-234809",
-   "site":"",
-   "starttimestamp":"2018-10-16 14:10:25.417",
-   "sourceaddress":"447458650571",
-   "destinationaddress":"",
-   "duration":4,
-   "filestoragelocation":"2018\\10\\16\\6079949e-a962-4b6e-91b3-68c9fc37b91e_(20181016141025416).wav",
-   "archivedate":"2023-10-16",
-   "filehash":{
-      "hash":"2c7255775b7ff19693acac6c9567c67d9a7d54356541c11b5a7b1d4222d17073",
-      "type":"SHA-256"
-   }
+   "@context":"http://comchainalliance.org/schema/",
+   "@type":"MDERecord",
+   "product":{
+      "@context":"http://comchainalliance.org/schema/",
+      "@type":"Product",
+      "@id":"0x6cca8b78065f02035e5f2e2edf671b6d7a2ed739"
+   },
+   "provider":{
+      "@type":"Member",
+      "@context":"http://comchainalliance.org/schema/",
+      "@id":"0xb3f9d6bdd9f1cf43d0a4772f6aac70c94fc49938"
+   },
+   "fields":{
+      "@context":"http://comchainalliance.org/schema/",
+      "@type":"comChain",
+      "type":"voicerecorder",
+      "comid":"447458650571-324-234809",
+      "site":"",
+      "starttimestamp":"2018-10-16 14:10:25.417",
+      "sourceaddress":"447458650571",
+      "destinationaddress":"",
+      "duration":4,
+      "filestoragelocation":"2018\\10\\16\\6079949e-a962-4b6e-91b3-68c9fc37b91e_(20181016141025416).wav",
+      "archivedate":"2023-10-16",
+      "filehash":{
+         "hash":"2c7255775b7ff19693acac6c9567c67d9a7d54356541c11b5a7b1d4222d17073",
+         "type":"SHA-256"
+      }
+   },
+   "transactionHash":"0x23bc68a51707b56bfc9eb267f267fcf8c4483459012d5ff337a37fedbc35e21a",
+   "hash":"0xac8befe94ee62c3e6c23dcd025eea159554f89c9c4d7e15f6af0854c816832b9",
+   "jsonPath":"/opt/cc_data/0x6cca8b78065f02035e5f2e2edf671b6d7a2ed739_2018-10-16T14:08:23.920Z.json"
 }

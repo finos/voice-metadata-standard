@@ -1,16 +1,35 @@
 {
-   "type":"voicerecorder",
-   "comid":"3019-SEP000C293D54DF-30975651",
-   "profileid":"SEP000C293D54DF",
-   "site":"",
-   "starttimestamp":"2018-10-15 22:51:07.783",
-   "sourceaddress":"3019",
-   "destinationaddress":"",
-   "duration":4,
-   "filestoragelocation":"2018\\10\\15\\cd1a2ef5-d0cc-11e8-9955-000c29dd7443_(20181015225107784).wav",
-   "archivedate":"2023-10-15",
-   "filehash":{
-      "hash":"ffb84e7a2259d638bf3eab243f8e93f2d329ee140b20efaa7a2447bd1722853c",
-      "type":"SHA-256"
-   }
+   "@context":"http://comchainalliance.org/schema/",
+   "@type":"MDERecord",
+   "product":{
+      "@context":"http://comchainalliance.org/schema/",
+      "@type":"Product",
+      "@id":"0xce2242269b73857c45ccd36d3bc70abe019a2b95"
+   },
+   "provider":{
+      "@type":"Member",
+      "@context":"http://comchainalliance.org/schema/",
+      "@id":"0xb3f9d6bdd9f1cf43d0a4772f6aac70c94fc49938"
+   },
+   "fields":{
+      "@context":"http://comchainalliance.org/schema/",
+      "@type":"comChain",
+      "type":"voicerecorder",
+      "comid":"3019-SEP000C293D54DF-30975651",
+      "profileid":"SEP000C293D54DF",
+      "site":"",
+      "starttimestamp":"2018-10-15 22:51:07.783",
+      "sourceaddress":"3019",
+      "destinationaddress":"",
+      "duration":4,
+      "filestoragelocation":"2018\\10\\15\\cd1a2ef5-d0cc-11e8-9955-000c29dd7443_(20181015225107784).wav",
+      "archivedate":"2023-10-15",
+      "filehash":{
+         "hash":"ffb84e7a2259d638bf3eab243f8e93f2d329ee140b20efaa7a2447bd1722853c",
+         "type":"SHA-256"
+      }
+   },
+   "transactionHash":"0x0daa9857e46c1d110c146aeef0e473b72b9e89a95aa723888a4d3fc57da4e28a",
+   "hash":"0x165576fc05e802c9abc0d664438872964f312fa226a0f324664637b4ad2b266e",
+   "jsonPath":"/opt/cc_data/0xce2242269b73857c45ccd36d3bc70abe019a2b95_2018-10-15T22:51:19.151Z.json"
 }
