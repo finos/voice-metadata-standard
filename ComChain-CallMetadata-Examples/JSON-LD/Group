@@ -1,0 +1,24 @@
+{
+   "$schema":"http://comchainalliance.org/schema/Group",
+   "type":"object",
+   "properties":{
+      "id":{
+         "type":"string"
+      },
+      "name":{
+         "type":"string"
+      },
+      "identifier":{
+         "$ref":"http://schema.org/identifier"
+      },
+      "leiCode":{
+         "$ref":"http://schema.org/leiCode"
+      },
+      "regulated":{
+         "type":"boolean"
+      }
+   },
+   "required":[
+      "name"
+   ]
+}
