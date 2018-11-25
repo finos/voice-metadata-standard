@@ -76,7 +76,7 @@
               type: string
               example: "Nat Gas Desk"
               description: Name of the group for the call. It may changed by the nearEnd Firm
-            buttonName: # I would move this by the connectionID as they are related. Not sure why we don't label as Connection name
+            contactName: # I would move this by the connectionID as they are related. Not sure why we don't label as Connection name
               type: string
               example: "XYZ Energy"
               description: The name on C9 for the connection
