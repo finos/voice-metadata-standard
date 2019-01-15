@@ -1,0 +1,146 @@
+{
+	"callDetailRecord": {
+		"type": "object",
+		"description": "Meta data for standard shoutdown (ARD) calls",
+		"properties": {
+			"callRecordType": {
+				"type": "string",
+				"enum": [
+					"Shoutdown",
+					"Gateway Shoutdown",
+					"Ringdown",
+					"Gateway Ringdown",
+					"Dialtone"
+				],
+				"description": "The type of call that was made (dialtone, ringdown, shoutdown, etc)"
+			},
+			"audioInterface": {
+				"type": "string",
+				"enum": [
+					"left handset",
+					"microphone",
+					"right handset"
+				],
+				"description": "The device as used to handle the call"
+			},
+			"timeStampForCallStart": {
+				"type": "string",
+				"description": "Start time of the call in ISO 8601 UTC time time format",
+				"example": "2016-06-18T07:50:30Z"
+			},
+			"userInfo": {
+				"type": "object",
+				"description": "Information about the user who generated this call record",
+				"properties": {
+					"userName": {
+						"type": "string",
+						"description": "The username he used on this system",
+						"example": "johnsmith"
+					},
+					"firmName": {
+						"type": "string",
+						"example": "ABC Trading",
+						"description": "Company name of the user who generated the call"
+					},
+					"timeZoneOffset": {
+						"type": "string",
+						"example": "UTC -05:00:00",
+						"description": "The UTC timezone offset for the user"
+					}
+				}
+			},
+			"recordingFile": {
+				"type": "object",
+				"description": "Information about the recording associated with the call record",
+				"properties": {
+					"fileName": {
+						"type": "string",
+						"example": "sPK-20160517-163415-johnsmith-1165020038-1.m4a",
+						"description": "The name of the recording file as stored by Cloud9"
+					},
+					"md5Checksum": null,
+					"type": "string",
+					"example": "14DCA74CB34502CA919966F31FBB8B0D",
+					"description": "An MD5 hash of the recording file which is created when recorded and when stored in the S3 repository. The hash values are compared and, if they match, confirms that the data has not been altered."
+				}
+			},
+			"callRecords": {
+				"type": "object",
+				"description": "Specific details about the callRecord",
+				"properties": {
+					"universalCallID": {
+						"type": "string",
+						"example": "fd5cee0fe0184142a4397c92cb71f73620170508224148",
+						"description": "Unique call ID for this call record. Will be unique across all Calls"
+					},
+					"connectionId": {
+						"type": "string",
+						"example": "sPK-20160517-163234",
+						"description": "Identifier for the connection"
+					},
+					"groupId": {
+						"type": "integer",
+						"example": 365,
+						"description": "The internal ID used by C9 for the group. This will never change for the connection"
+					},
+					"groupName": {
+						"type": "string",
+						"example": "Nat Gas Desk",
+						"description": "Name of the group for the call. It may changed by the nearEnd Firm"
+					},
+					"buttonName": {
+						"type": "string",
+						"example": "XYZ Energy",
+						"description": "The name on C9 for the connection"
+					},
+					"offset": {
+						"type": "string",
+						"example": "00:00:20",
+						"description": "For shoutdowns, the offset in the recording for this call. Shoutdown recordings may include more than one call Record"
+					},
+					"duration": {
+						"type": "integer",
+						"example": 35,
+						"description": "The duration of the call in seconds"
+					},
+					"startTime": {
+						"type": "string",
+						"example": "2016-06-18T07:50:30Z",
+						"description": "The time when the call started"
+					},
+					"stopTime": {
+						"type": "string",
+						"example": "2016-06-18T08:05:15Z",
+						"description": "The time when the call terminated"
+					},
+					"farendUsers": {
+						"type": "object",
+						"description": "Specific details about the farEndUsers (the other end of the call)",
+						"properties": {
+							"firmName": {
+								"type": "string",
+								"example": "XYZ Firm",
+								"description": "Name of the farEnd firm on the call. If an internal call, the firmName can match the nearEnd firm"
+							},
+							"groupId": {
+								"type": "integer",
+								"example": 235,
+								"description": "The internal ID used by C9 for the farEnd group. This will never change for the connection"
+							},
+							"groupName": {
+								"type": "string",
+								"example": "Energy Desk",
+								"description": "Name of the farEnd group for the call. It may changed by the farEnd Firm"
+							},
+							"farEndName": {
+								"type": "string",
+								"example": "Steve Jones",
+								"description": "The name (first and last) of the farEnd User on the call"
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
