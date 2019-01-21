@@ -28,6 +28,14 @@
 				"description": "Start time of the call in ISO 8601 UTC time time format",
 				"example": "2016-06-18T07:50:30Z"
 			},
+			"callDirection": {
+				"type": "string",
+				"enum": [
+					"outgoing",
+					"incoming"
+				],
+				"description": "Direction of call establishment"
+			},
 			"userInfo": {
 				"type": "object",
 				"description": "Information about the user who generated this call record",
