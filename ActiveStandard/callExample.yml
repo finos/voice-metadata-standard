@@ -11,7 +11,7 @@
           type: string
           enum: [left handset, microphone, right handset]
           description: The device as used to handle the call 
-        timeStampForCallStart: 
+        callStartTime:
           type: string
           description: Start time of the call in ISO 8601 UTC time time format
           example: "2016-06-18T07:50:30Z"
