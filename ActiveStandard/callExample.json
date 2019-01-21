@@ -36,6 +36,17 @@
 				],
 				"description": "Direction of call establishment"
 			},
+			"deviceInfo": {
+				"type": "object",
+				"description": "Information about the device that generated this call record",
+				"properties": {
+					"deviceID": {
+						"type": "string",
+						"description": "Identifier for the device",
+						"example": "turret1"
+					}
+				}
+			},
 			"userInfo": {
 				"type": "object",
 				"description": "Information about the user who generated this call record",
