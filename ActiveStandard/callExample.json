@@ -132,7 +132,7 @@
 						"example": "2016-06-18T08:05:15Z",
 						"description": "The time when the call terminated"
 					},
-					"farendUsers": {
+					"participants": {
 						"type": "object",
 						"description": "Specific details about the farEndUsers (the other end of the call)",
 						"properties": {
