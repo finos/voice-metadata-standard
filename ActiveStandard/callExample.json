@@ -23,10 +23,29 @@
 				],
 				"description": "The device as used to handle the call"
 			},
-			"timeStampForCallStart": {
+			"callStartTime": {
 				"type": "string",
 				"description": "Start time of the call in ISO 8601 UTC time time format",
 				"example": "2016-06-18T07:50:30Z"
+			},
+			"callDirection": {
+				"type": "string",
+				"enum": [
+					"outgoing",
+					"incoming"
+				],
+				"description": "Direction of call establishment"
+			},
+			"deviceInfo": {
+				"type": "object",
+				"description": "Information about the device that generated this call record",
+				"properties": {
+					"deviceID": {
+						"type": "string",
+						"description": "Identifier for the device",
+						"example": "turret1"
+					}
+				}
 			},
 			"userInfo": {
 				"type": "object",
@@ -113,7 +132,7 @@
 						"example": "2016-06-18T08:05:15Z",
 						"description": "The time when the call terminated"
 					},
-					"farendUsers": {
+					"participants": {
 						"type": "object",
 						"description": "Specific details about the farEndUsers (the other end of the call)",
 						"properties": {
