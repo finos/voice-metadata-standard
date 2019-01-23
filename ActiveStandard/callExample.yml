@@ -1,6 +1,6 @@
     callDetailRecord:
       type: object
-      description: Meta data supporting dialtine, ringdown, and shoutdown calls
+      description: Meta data supporting dialtone, ringdown, and shoutdown calls
       properties:
         callRecordType: 
           type: string
@@ -70,7 +70,7 @@
             groupId: 
               type: integer
               example: 365
-              description: The internal ID used by C9 for the group. This will never change for the connection
+              description: The internal ID used for the group by the consumer. This will never change for the connection
             groupName: 
               type: string
               example: "Nat Gas Desk"
@@ -78,7 +78,7 @@
             buttonName: # I would move this by the connectionID as they are related. Not sure why we don't label as Connection name
               type: string
               example: "XYZ Energy"
-              description: The name on C9 for the connection
+              description: The name on the consuming app for the connection
             offset: 
               type: string
               example: "00:00:20"
@@ -106,7 +106,7 @@
                 groupId: 
                   type: integer
                   example: 235
-                  description: The internal ID used by C9 for the farEnd group. This will never change for the connection
+                  description: The internal ID used by consumer for the farEnd group. This will never change for the connection
                 groupName: 
                   type: string
                   example: "Energy Desk"

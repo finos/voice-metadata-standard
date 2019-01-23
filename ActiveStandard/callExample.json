@@ -1,7 +1,7 @@
 {
 	"callDetailRecord": {
 		"type": "object",
-		"description": "Meta data supporting dialtine, ringdown, and shoutdown calls",
+		"description": "Meta data supporting dialtone, ringdown, and shoutdown calls",
 		"properties": {
 			"callRecordType": {
 				"type": "string",
@@ -99,7 +99,7 @@
 					"groupId": {
 						"type": "integer",
 						"example": 365,
-						"description": "The internal ID used by C9 for the group. This will never change for the connection"
+						"description": "The internal ID used for the group by the consumer. This will never change for the connection"
 					},
 					"groupName": {
 						"type": "string",
@@ -109,7 +109,7 @@
 					"buttonName": {
 						"type": "string",
 						"example": "XYZ Energy",
-						"description": "The name on C9 for the connection"
+						"description": "The name on the consuming app for the connection"
 					},
 					"offset": {
 						"type": "string",
@@ -143,7 +143,7 @@
 							"groupId": {
 								"type": "integer",
 								"example": 235,
-								"description": "The internal ID used by C9 for the farEnd group. This will never change for the connection"
+								"description": "The internal ID used by consumer for the farEnd group. This will never change for the connection"
 							},
 							"groupName": {
 								"type": "string",
