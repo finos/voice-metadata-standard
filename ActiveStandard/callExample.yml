@@ -1,6 +1,6 @@
     callDetailRecord:
       type: object
-      description: Meta data supporting dialtine, ringdown, and shoutdown calls
+      description: Meta data supporting dialtone, ringdown, and shoutdown calls
       properties:
         callRecordType: 
           type: string
