@@ -1,11 +1,10 @@
     callDetailRecord:
       type: object
-      description: Meta data for standard shoutdown (ARD) calls
+      description: Meta data supporting dialtine, ringdown, and shoutdown calls
       properties:
-        # An enumeration to describe the type of call (dialtone, ringdown, shoutdown, etc)
         callRecordType: 
           type: string
-          enum: [Shoutdown, Gateway Shoutdown, Ringdown, Gateway Ringdown, Dialtone] 
+          enum: [Shoutdown, Ringdown, Dialtone] 
           description: The type of call that was made (dialtone, ringdown, shoutdown, etc)
         audioInterface: 
           type: string
@@ -28,7 +27,7 @@
               type: string
               description: Identifier for the device
               example: "turret1"
-          userInfo:
+        userInfo:
           type: object
           description: Information about the user who generated this call record
           properties: 

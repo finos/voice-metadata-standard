@@ -1,15 +1,13 @@
 {
 	"callDetailRecord": {
 		"type": "object",
-		"description": "Meta data for standard shoutdown (ARD) calls",
+		"description": "Meta data supporting dialtine, ringdown, and shoutdown calls",
 		"properties": {
 			"callRecordType": {
 				"type": "string",
 				"enum": [
 					"Shoutdown",
-					"Gateway Shoutdown",
 					"Ringdown",
-					"Gateway Ringdown",
 					"Dialtone"
 				],
 				"description": "The type of call that was made (dialtone, ringdown, shoutdown, etc)"
@@ -34,7 +32,8 @@
 					"outgoing",
 					"incoming"
 				],
-				"description": "Direction of call establishment"
+				"description": "Direction of call establishment",
+				"example": "outgoing"
 			},
 			"deviceInfo": {
 				"type": "object",
