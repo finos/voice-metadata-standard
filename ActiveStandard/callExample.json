@@ -2,6 +2,91 @@
 	"$schema": "http://json-schema.org/draft-07/schema#",
 	"$id": "http://finos.org/schemas/callmetadata.json",
 	"title": "Call Metadata Standard",
+	"definitions": {
+		"participant": {
+			"type": "object",
+			"description": "Specific details about the farEndUsers (the other end of the call)",
+			"properties": {
+				"firmName": {
+					"type": "string",
+					"example": "XYZ Firm",
+					"description": "Name of the farEnd firm on the call. If an internal call, the firmName can match the nearEnd firm"
+				},
+				"groupId": {
+					"type": "integer",
+					"example": 235,
+					"description": "The internal ID used by consumer for the farEnd group. This will never change for the connection"
+				},
+				"groupName": {
+					"type": "string",
+					"example": "Energy Desk",
+					"description": "Name of the farEnd group for the call. It may changed by the farEnd Firm"
+				},
+				"farEndName": {
+					"type": "string",
+					"example": "Steve Jones",
+					"description": "The name (first and last) of the farEnd User on the call"
+				}
+			}
+		},
+		"callRecord": {
+			"type": "object",
+			"properties": {
+				"universalCallID": {
+					"type": "string",
+					"example": "fd5cee0fe0184142a4397c92cb71f73620170508224148",
+					"description": "Unique call ID for this call record. Will be unique across all Calls"
+				},
+				"connectionId": {
+					"type": "string",
+					"example": "sPK-20160517-163234",
+					"description": "Identifier for the connection"
+				},
+				"groupId": {
+					"type": "integer",
+					"example": 365,
+					"description": "The internal ID used for the group by the consumer. This will never change for the connection"
+				},
+				"groupName": {
+					"type": "string",
+					"example": "Nat Gas Desk",
+					"description": "Name of the group for the call. It may changed by the nearEnd Firm"
+				},
+				"buttonName": {
+					"type": "string",
+					"example": "XYZ Energy",
+					"description": "The name on the consuming app for the connection"
+				},
+				"offset": {
+					"type": "string",
+					"example": "00:00:20",
+					"description": "For shoutdowns, the offset in the recording for this call. Shoutdown recordings may include more than one call Record"
+				},
+				"duration": {
+					"type": "integer",
+					"example": 35,
+					"description": "The duration of the call in seconds"
+				},
+				"startTime": {
+					"type": "string",
+					"format": "date-time",
+					"example": "2016-06-18T07:50:30Z",
+					"description": "The time when the call started"
+				},
+				"stopTime": {
+					"type": "string",
+					"format": "date-time",
+					"example": "2016-06-18T08:05:15Z",
+					"description": "The time when the call terminated"
+				},
+				"participants": {
+					"type": "array",
+					"items": { "$ref": "#/definitions/participant" },
+					"default": []
+				}
+			}
+		}
+	},
 	"callDetailRecord": {
 		"type": "object",
 		"description": "Meta data supporting dialtone, ringdown, and shoutdown calls",
@@ -87,83 +172,9 @@
 				}
 			},
 			"callRecords": {
-				"type": "object",
-				"description": "Specific details about the callRecord",
-				"properties": {
-					"universalCallID": {
-						"type": "string",
-						"example": "fd5cee0fe0184142a4397c92cb71f73620170508224148",
-						"description": "Unique call ID for this call record. Will be unique across all Calls"
-					},
-					"connectionId": {
-						"type": "string",
-						"example": "sPK-20160517-163234",
-						"description": "Identifier for the connection"
-					},
-					"groupId": {
-						"type": "integer",
-						"example": 365,
-						"description": "The internal ID used for the group by the consumer. This will never change for the connection"
-					},
-					"groupName": {
-						"type": "string",
-						"example": "Nat Gas Desk",
-						"description": "Name of the group for the call. It may changed by the nearEnd Firm"
-					},
-					"buttonName": {
-						"type": "string",
-						"example": "XYZ Energy",
-						"description": "The name on the consuming app for the connection"
-					},
-					"offset": {
-						"type": "string",
-						"example": "00:00:20",
-						"description": "For shoutdowns, the offset in the recording for this call. Shoutdown recordings may include more than one call Record"
-					},
-					"duration": {
-						"type": "integer",
-						"example": 35,
-						"description": "The duration of the call in seconds"
-					},
-					"startTime": {
-						"type": "string",
-						"format": "date-time",
-						"example": "2016-06-18T07:50:30Z",
-						"description": "The time when the call started"
-					},
-					"stopTime": {
-						"type": "string",
-						"format": "date-time",
-						"example": "2016-06-18T08:05:15Z",
-						"description": "The time when the call terminated"
-					},
-					"participants": {
-						"type": "object",
-						"description": "Specific details about the farEndUsers (the other end of the call)",
-						"properties": {
-							"firmName": {
-								"type": "string",
-								"example": "XYZ Firm",
-								"description": "Name of the farEnd firm on the call. If an internal call, the firmName can match the nearEnd firm"
-							},
-							"groupId": {
-								"type": "integer",
-								"example": 235,
-								"description": "The internal ID used by consumer for the farEnd group. This will never change for the connection"
-							},
-							"groupName": {
-								"type": "string",
-								"example": "Energy Desk",
-								"description": "Name of the farEnd group for the call. It may changed by the farEnd Firm"
-							},
-							"farEndName": {
-								"type": "string",
-								"example": "Steve Jones",
-								"description": "The name (first and last) of the farEnd User on the call"
-							}
-						}
-					}
-				}
+				"type": "array",
+				"items": { "$ref": "#/definitions/callRecord" },
+				"default": []
 			}
 		}
 	}
