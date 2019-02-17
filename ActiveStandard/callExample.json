@@ -1,4 +1,7 @@
 {
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "http://finos.org/schemas/callmetadata.json",
+	"title": "Call Metadata Standard",
 	"callDetailRecord": {
 		"type": "object",
 		"description": "Meta data supporting dialtone, ringdown, and shoutdown calls",
