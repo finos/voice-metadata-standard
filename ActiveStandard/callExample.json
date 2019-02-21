@@ -26,6 +26,7 @@
 			},
 			"callStartTime": {
 				"type": "string",
+				"format": "date-time",
 				"description": "Start time of the call in ISO 8601 UTC time time format",
 				"example": "2016-06-18T07:50:30Z"
 			},
@@ -126,11 +127,13 @@
 					},
 					"startTime": {
 						"type": "string",
+						"format": "date-time",
 						"example": "2016-06-18T07:50:30Z",
 						"description": "The time when the call started"
 					},
 					"stopTime": {
 						"type": "string",
+						"format": "date-time",
 						"example": "2016-06-18T08:05:15Z",
 						"description": "The time when the call terminated"
 					},
