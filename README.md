@@ -7,8 +7,7 @@
 
 # Directories (See more details below)
 * ActiveStandard =  this directory will hold the present working standard.
-* Cloud9-Examples = this directory holds the present cloud9 JSON format that has been integrated with several vendors.
-* ComChain-CallMetadata-Examples = this directory contains the present work of the ComChain Alliance for call metadata and will be considered as a possible path for this working group.
+* `examples/vendors` - this directory holds examples from different vendors for reference.
 
 # ActiveStandard Directory
 * The master file is callExample.yml. All comments and PR's should be made against this file.
