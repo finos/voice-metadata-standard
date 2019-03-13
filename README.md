@@ -10,7 +10,7 @@ The project uses [JSON Schema](https://json-schema.org/) to describe and validat
 
 Checkout [FINOS Voice program](https://finosfoundation.atlassian.net/wiki/spaces/VOICE/overview) to start contributing.
 
-The standard definition is on `callmedata.schema.json`, all comments and PR's should be made against this file. 
+The standard definition is on `callmetadata.schema.json`, all comments and PR's should be made against this file. 
 
 You must validate your contributions against JSON Schema draft version defined in `$schema` field.
 
