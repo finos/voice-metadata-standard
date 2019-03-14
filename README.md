@@ -14,6 +14,8 @@ The standard definition is on `callmetadata.schema.json`, all comments and PR's 
 
 You must validate your contributions against JSON Schema draft version defined in `$schema` field.
 
+Follow guidelines described on [CONTRIBUTING](CONTRIBUTING.md) file.
+
 ## Directories
 
 * `examples/vendors` - holds examples from different vendors for reference.
