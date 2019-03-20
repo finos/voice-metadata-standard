@@ -5,3 +5,4 @@ before_script:
   - npm install -g ajv-cli
 script:
   - ajv compile -s callmetadata.schema.json
+  - ./tools/formatter.js callmetadata.schema.json | diff callmetadata.schema.json - > /dev/null
