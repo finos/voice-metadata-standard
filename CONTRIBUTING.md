@@ -1,3 +1,8 @@
+# Before Pull Request
+
+1. Validate your contribututions to the standard schema against JSON Schema draft version defined in `$schema` field. See [Tools](#schema-validation) section if you need help to validate your contribution.
+2. Format the standard schema following guidelines described in [Style guidelines](#style-guidelines). See [Tools](#schema-formatting) section if you need help to format your contribution.
+
 # Style guidelines
 
 ## JSON Schema
@@ -71,3 +76,27 @@ Property value must be placed in the same line as the property name.
     "property2": "property2 value"
 }
 ```
+
+# Tools
+
+## Schema validation
+
+We use [AJV](https://ajv.js.org) and [ajv-cli](https://github.com/jessedc/ajv-cli) to validate the standard schema in this project.
+
+With ajv-cli installed you can execute the following command to validate your changes:
+
+```
+ajv compile -s callmetadata.schema.json
+```
+
+As alternative, you can use [JSON Schema Lint](https://jsonschemalint.com/#/version/draft-07/markup/json) online tool or any other tools available in the [JSON Schema Implementations](https://json-schema.org/implementations.html#validators) page.
+
+## Schema formatting
+
+We provide a simple node script to format standard schema following project guidelines. Please run the formatter script against your modified standard schema before creating your Pull Request:
+
+```
+./tools/formatter.js -i callmetadata.schema.json
+```
+
+**Warning:** running formatter with `-i` option will edit the file in-place and save a backup of the original file with `.bak` extension in the original file directory. If an existing backup file exists it will be overwritten.
