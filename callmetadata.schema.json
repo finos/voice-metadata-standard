@@ -2,6 +2,8 @@
     "$schema": "http://json-schema.org/draft-07/schema#",
     "$id": "http://finos.org/schemas/callmetadata.json",
     "title": "Call Metadata Standard",
+    "description": "Meta data supporting dialtone, ringdown, and shoutdown calls",
+    "type": "object",
     "definitions": {
         "participant": {
             "type": "object",
@@ -89,98 +91,94 @@
             }
         }
     },
-    "callDetailRecord": {
-        "type": "object",
-        "description": "Meta data supporting dialtone, ringdown, and shoutdown calls",
-        "properties": {
-            "callRecordType": {
-                "type": "string",
-                "enum": [
-                    "Shoutdown",
-                    "Ringdown",
-                    "Dialtone"
-                ],
-                "description": "The type of call that was made (dialtone, ringdown, shoutdown, etc)"
-            },
-            "audioInterface": {
-                "type": "string",
-                "enum": [
-                    "left handset",
-                    "microphone",
-                    "right handset"
-                ],
-                "description": "The device as used to handle the call"
-            },
-            "callStartTime": {
-                "type": "string",
-                "format": "date-time",
-                "description": "Start time of the call in ISO 8601 UTC time time format",
-                "example": "2016-06-18T07:50:30Z"
-            },
-            "callDirection": {
-                "type": "string",
-                "enum": [
-                    "outgoing",
-                    "incoming"
-                ],
-                "description": "Direction of call establishment",
-                "example": "outgoing"
-            },
-            "deviceInfo": {
-                "type": "object",
-                "description": "Information about the device that generated this call record",
-                "properties": {
-                    "deviceID": {
-                        "type": "string",
-                        "description": "Identifier for the device",
-                        "example": "turret1"
-                    }
+    "properties": {
+        "callRecordType": {
+            "type": "string",
+            "enum": [
+                "Shoutdown",
+                "Ringdown",
+                "Dialtone"
+            ],
+            "description": "The type of call that was made (dialtone, ringdown, shoutdown, etc)"
+        },
+        "audioInterface": {
+            "type": "string",
+            "enum": [
+                "left handset",
+                "microphone",
+                "right handset"
+            ],
+            "description": "The device as used to handle the call"
+        },
+        "callStartTime": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Start time of the call in ISO 8601 UTC time time format",
+            "example": "2016-06-18T07:50:30Z"
+        },
+        "callDirection": {
+            "type": "string",
+            "enum": [
+                "outgoing",
+                "incoming"
+            ],
+            "description": "Direction of call establishment",
+            "example": "outgoing"
+        },
+        "deviceInfo": {
+            "type": "object",
+            "description": "Information about the device that generated this call record",
+            "properties": {
+                "deviceID": {
+                    "type": "string",
+                    "description": "Identifier for the device",
+                    "example": "turret1"
                 }
-            },
-            "userInfo": {
-                "type": "object",
-                "description": "Information about the user who generated this call record",
-                "properties": {
-                    "userName": {
-                        "type": "string",
-                        "description": "The username he used on this system",
-                        "example": "johnsmith"
-                    },
-                    "firmName": {
-                        "type": "string",
-                        "example": "ABC Trading",
-                        "description": "Company name of the user who generated the call"
-                    },
-                    "timeZoneOffset": {
-                        "type": "string",
-                        "example": "UTC -05:00:00",
-                        "description": "The UTC timezone offset for the user"
-                    }
-                }
-            },
-            "recordingFile": {
-                "type": "object",
-                "description": "Information about the recording associated with the call record",
-                "properties": {
-                    "fileName": {
-                        "type": "string",
-                        "example": "sPK-20160517-163415-johnsmith-1165020038-1.m4a",
-                        "description": "The name of the recording file as stored by Cloud9"
-                    },
-                    "md5Checksum": {
-                        "type": "string",
-                        "example": "14DCA74CB34502CA919966F31FBB8B0D",
-                        "description": "An MD5 hash of the recording file which is created when recorded and when stored in the S3 repository. The hash values are compared and, if they match, confirms that the data has not been altered."
-                    }
-                }
-            },
-            "callRecords": {
-                "type": "array",
-                "items": {
-                    "$ref": "#/definitions/callRecord"
-                },
-                "default": []
             }
+        },
+        "userInfo": {
+            "type": "object",
+            "description": "Information about the user who generated this call record",
+            "properties": {
+                "userName": {
+                    "type": "string",
+                    "description": "The username he used on this system",
+                    "example": "johnsmith"
+                },
+                "firmName": {
+                    "type": "string",
+                    "example": "ABC Trading",
+                    "description": "Company name of the user who generated the call"
+                },
+                "timeZoneOffset": {
+                    "type": "string",
+                    "example": "UTC -05:00:00",
+                    "description": "The UTC timezone offset for the user"
+                }
+            }
+        },
+        "recordingFile": {
+            "type": "object",
+            "description": "Information about the recording associated with the call record",
+            "properties": {
+                "fileName": {
+                    "type": "string",
+                    "example": "sPK-20160517-163415-johnsmith-1165020038-1.m4a",
+                    "description": "The name of the recording file as stored by Cloud9"
+                },
+                "md5Checksum": {
+                    "type": "string",
+                    "example": "14DCA74CB34502CA919966F31FBB8B0D",
+                    "description": "An MD5 hash of the recording file which is created when recorded and when stored in the S3 repository. The hash values are compared and, if they match, confirms that the data has not been altered."
+                }
+            }
+        },
+        "callRecords": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/callRecord"
+            },
+            "default": []
         }
     }
 }
