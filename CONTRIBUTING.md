@@ -1,3 +1,8 @@
+# Before Pull Request
+
+1. Validate your contribututions to the standard schema against JSON Schema draft version defined in `$schema` field. See [Tools](#schema-validation) section if you need help to validate your contribution.
+2. Format the standard schema following guidelines described in [Style guidelines](#style-guidelines). See [Tools](#schema-formatting) section if you need help to format your contribution.
+
 # Style guidelines
 
 ## JSON Schema
@@ -70,4 +75,49 @@ Property value must be placed in the same line as the property name.
     "property1": "property1 value",
     "property2": "property2 value"
 }
+```
+
+##### Enums
+
+Opening brackets should go on the same line as property name.
+
+One line per option.
+
+Closing brackets should be in a separate line with same identation level as the property name.
+
+```
+"properties": {
+    "propertyName": {
+        "type": "string",
+        "enum": [
+            "option1",
+            "option2"
+        ]
+    }
+}
+```
+
+# Tools
+
+## Schema validation
+
+We use [AJV](https://ajv.js.org) and [ajv-cli](https://github.com/jessedc/ajv-cli) to validate the standard schema in this project.
+
+With ajv-cli installed you can execute the following command to validate your changes:
+
+```
+ajv compile -s callmetadata.schema.json
+```
+
+As alternative, you can use [JSON Schema Lint](https://jsonschemalint.com/#/version/draft-07/markup/json) online tool or any other tools available in the [JSON Schema Implementations](https://json-schema.org/implementations.html#validators) page.
+
+## Schema formatting
+
+Please configure your editor or run a formatter tool against your modified standard schema before creating your Pull Request.
+
+We use [Prettier](https://prettier.io/) to check if the contributions to the standard schema are following the project guidelines. A Prettier config file(`.prettierrc`) is provided in the repository.
+To format using prettier just run:
+
+```
+prettier callmetadata.schema.json
 ```
