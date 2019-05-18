@@ -164,12 +164,36 @@
                 "fileName": {
                     "type": "string",
                     "example": "sPK-20160517-163415-johnsmith-1165020038-1.m4a",
-                    "description": "The name of the recording file as stored by Cloud9"
+                    "description": "The name of the recording file as stored"
                 },
-                "md5Checksum": {
-                    "type": "string",
-                    "example": "14DCA74CB34502CA919966F31FBB8B0D",
-                    "description": "An MD5 hash of the recording file which is created when recorded and when stored in the S3 repository. The hash values are compared and, if they match, confirms that the data has not been altered."
+                "checksum": {
+                    "type": "object",
+                    "description": "Checksum of the recording file used to verify the file integrity. The hash values are compared and, if they match, confirms that the data has not been altered. It can be stored in one of the supported algorithms listed in type enum",
+                    "required": [
+                        "hash"
+                    ],
+                    "properties": {
+                        "type": {
+                            "type": "string",
+                            "description": "Hash algorithm used on recording checksum.",
+                            "default": "MD5",
+                            "enum": [
+                                "MD5",
+                                "SHA-256",
+                                "SHA-384",
+                                "SHA-512",
+                                "SHA3-224",
+                                "SHA3-256",
+                                "SHA3-384",
+                                "SHA3-512"
+                            ]
+                        },
+                        "hash": {
+                            "type": "string",
+                            "example": "ca834d692f1d2ae659c69b72372c39a0",
+                            "description": "Checksum of the recording file in the selected hash type"
+                        }
+                    }
                 }
             }
         },
