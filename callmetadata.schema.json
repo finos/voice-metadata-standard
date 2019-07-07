@@ -34,11 +34,6 @@
         "callRecord": {
             "type": "object",
             "properties": {
-                "universalCallID": {
-                    "type": "string",
-                    "example": "fd5cee0fe0184142a4397c92cb71f73620170508224148",
-                    "description": "Unique call ID for this call record. Will be unique across all Calls"
-                },
                 "connectionId": {
                     "type": "string",
                     "example": "sPK-20160517-163234",
@@ -100,6 +95,11 @@
                 "Dialtone"
             ],
             "description": "The type of call that was made (dialtone, ringdown, shoutdown, etc)"
+        },
+        "callUUID": {
+            "type": "string",
+            "example": "fd5cee0fe0184142a4397c92cb71f73620170508224148",
+            "description": "Universally Unique Identifier for this call. Will be unique across all call records."
         },
         "audioInterface": {
             "type": "string",
