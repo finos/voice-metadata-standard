@@ -59,16 +59,6 @@
                     "example": "XYZ Energy",
                     "description": "The name on the consuming app for the connection"
                 },
-                "offset": {
-                    "type": "string",
-                    "example": "00:00:20",
-                    "description": "For shoutdowns, the offset in the recording for this call. Shoutdown recordings may include more than one call Record"
-                },
-                "duration": {
-                    "type": "integer",
-                    "example": 35,
-                    "description": "The duration of the call in seconds"
-                },
                 "startTime": {
                     "type": "string",
                     "format": "date-time",
