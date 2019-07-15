@@ -63,13 +63,13 @@
                     "type": "string",
                     "format": "date-time",
                     "example": "2016-06-18T07:50:30Z",
-                    "description": "The time when the call started"
+                    "description": "Date and time when this call record was started"
                 },
                 "stopTime": {
                     "type": "string",
                     "format": "date-time",
                     "example": "2016-06-18T08:05:15Z",
-                    "description": "The time when the call terminated"
+                    "description": "Date and time when this call record was finished"
                 },
                 "participants": {
                     "type": "array",
