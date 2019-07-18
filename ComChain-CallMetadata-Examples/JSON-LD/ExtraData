@@ -44,7 +44,6 @@
    },
    "required":[
       "storagePeriod",
-      "refreshPeriod",
-      "mifid2"
+      "refreshPeriod"
    ]
 }
