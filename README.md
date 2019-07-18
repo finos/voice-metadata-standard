@@ -1,7 +1,24 @@
-# voice-metadata-standard
+# Call metadata standard
 
-A simple API and JSON containing call metadata targeted to a server which will to consume call records and voice recordings.
+This is a project from [FINOS Voice program](https://finosfoundation.atlassian.net/wiki/spaces/VOICE/overview) to define a standard for call metadata. 
 
-Call metadata, more commonly known as CDR (Call Detail Recording), has been a part of every telephony system since the beginning of phone calls, yet each call control platform has its own format and these formats vary considerbly between vendors.
+This includes call details, voice recordings, and transcribed voice for all types of calls. The goal being that consumers can design to one interface and always be able to consume data from any voice provider. The ultimate goal is that this standard is adopted for all producers and consumers of call metadata.
 
-Traditionally this voice metadata was used largely for billing purposes and generally was not used by 3rd party systems.  With ever increasing regulation, the accurate capturing of call activity pertaining to trading accounts is becoming more important.
+The project uses [JSON Schema](https://json-schema.org/) to describe and validate call metadata.
+
+## Contributing
+
+Checkout [FINOS Voice program](https://finosfoundation.atlassian.net/wiki/spaces/VOICE/overview) to start contributing.
+
+The standard definition is on `callmetadata.schema.json`, all comments and PR's should be made against this file. 
+
+You must validate your contributions against JSON Schema draft version defined in `$schema` field.
+
+Follow guidelines described on [CONTRIBUTING](CONTRIBUTING.md) file.
+
+## Directories
+
+* `examples/vendors` - holds examples from different vendors for reference.
+
+## License
+[Apache 2.0](LICENSE)

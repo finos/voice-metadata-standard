@@ -1,0 +1,45 @@
+# Integer: An enumeration to describe the type of call (dialtone, ringdown, shoutdown, etc)
+callRecordType: 3
+# Integer: If the calling device has multiple audio device this enum is use do describe which device as used.
+deviceType: 0
+# String: ISO 8601 formatted timestamp
+timeStampForCallStart: "2016-06-18T07:50:30Z"
+# Object: Information about the user who generated this call record
+userInfo:
+  # String: The username he used on this system.
+  userName: "johnsmith"
+  # String: His company name.
+  firmName: "ABC Trading"
+  # String: His local timezone
+  timeZoneOffset: "UTC -05:00:00"
+recordingFile:
+  fileName: "sPK-20160517-163415-johnsmith-1165020038-1.m4a"
+  md5Checksum: "14DCA74CB34502CA919966F31FBB8B0D"
+callRecords:
+  - ucID: "fd5cee0fe0184142a4397c92cb71f73620170508224148"
+    connectionId: "sPK-20160517-163234"
+    groupId: 365
+    groupName: "Nat Gas Desk"
+    buttonName": "XYZ Energy"
+    offset: "00:00:20"
+    duration: "00:00:35"
+    startTime: "2016-06-18T07:50:30Z"
+    stopTime: "2016-06-18T08:05:15Z"
+    farendUsers:
+      - firmName: "XYZ Firm"
+        groupId: 235
+        groupName: "Energy desk"
+        name: "Steve Jones"
+      - firmName: "ABC Firm"
+        groupId: 235
+        groupName: "Lack of Energy desk"
+        name: "John Paul Jones"
+  - ucID: "fd5ceabce0184142a4397c92cb71f73620170508224148"
+    connectionId: "sVc-20160517-163234"
+    groupId: 365
+    groupName: "Gas Desk"
+    buttonName: "ABC Energy"
+    offset: "00:00:20"
+    duration: "00:00:35"
+    startTime: "2016-06-18T07:50:30Z"
+    stopTime: "2016-06-18T08:05:15Z"
