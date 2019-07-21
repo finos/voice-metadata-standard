@@ -1,0 +1,268 @@
+{
+   "$schema":"http://comchainalliance.org/schema/ComChain/MetaData",
+   "definitions":{
+      "Participant":{
+         "type":"object",
+         "properties":{
+            "id":{
+               "type":"string"
+            },
+            "duration":{
+               "type":"array",
+               "items":{
+                  "type":"integer"
+               }
+            },
+            "startTime":{
+               "type":"array",
+               "items":{
+                  "type":"string"
+               }
+            },
+            "state":{
+               "type":"array",
+               "items":{
+                  "type":"string"
+               }
+            },
+            "timeZoneOffset":{
+               "type":"string",
+               "example":"UTC -05:00:00",
+               "description":"The UTC timezone offset for the user"
+            },
+            "communityId":{
+               "oneOf":[
+                  {
+                     "$ref":"http://comchainalliance.org/schema/Community"
+                  },
+                  {
+                     "type":"string",
+                     "example":"21"
+                  }
+               ]
+            },
+            "groupId":{
+               "oneOf":[
+                  {
+                     "$ref":"http://comchainalliance.org/schema/Group"
+                  },
+                  {
+                     "type":"string",
+                     "example":"365"
+                  }
+               ]
+            },
+            "memberId":{
+               "oneOf":[
+                  {
+                     "$ref":"http://comchainalliance.org/schema/Member"
+                  },
+                  {
+                     "type":"string",
+                     "example":"2989"
+                  }
+               ]
+            }
+         }
+      }
+   },
+   "type":"object",
+   "properties":{
+      "id":{
+         "type":"string"
+      },
+      "identifier":{
+         "$ref":"http://schema.org/identifier"
+      },
+      "dataType":{
+         "type":"string",
+         "enum":[
+            "Telephony",
+            "VoiceRecorder",
+            "Transcription",
+            "Audit",
+            "IM",
+            "Other"
+         ]
+      },
+      "comId":{
+         "type":"string",
+         "example":"C3105SEP001E7AC38088-piotr-16784767",
+         "description":"The id for the conversation record from the system gathering the meta data."
+      },
+      "cscId":{
+         "type":"string",
+         "example":"7551/1",
+         "description":"The Communication System Call ID provided by the platform itself for a specific call leg."
+      },
+      "universalCallID":{
+         "type":"string",
+         "example":"fd5cee0fe0184142a4397c92cb71f73620170508224148",
+         "description":"A call ID the underlying platform may provide to link multiple calls within the system. For example where multiple calls are in conference some systems may link them with a universal call id."
+      },
+      "source":{
+         "type":"object",
+         "properties":{
+            "name":{
+               "type":"string",
+               "description":"The name of the caller"
+            },
+            "address":{
+               "type":"string",
+               "description":"The address of the caller based upon the system they are using, could be a phone number, email, IM…"
+            },
+            "channel":{
+               "$ref":"http://comchainalliance.org/schema/Channel"
+            },
+            "device":{
+               "$ref":"http://comchainalliance.org/schema/Device"
+            }
+         }
+      },
+      "destination":{
+         "type":"object",
+         "properties":{
+            "name":{
+               "type":"string",
+               "description":"The name of the first party communicated with to set up the initial event."
+            },
+            "address":{
+               "type":"string",
+               "description":"The address of the called party based upon the system they are using, could be a phone number, email, IM…"
+            },
+            "channel":{
+               "$ref":"http://comchainalliance.org/schema/Channel"
+            },
+            "device":{
+               "$ref":"http://comchainalliance.org/schema/Device"
+            }
+         }
+      },
+      "offset":{
+         "type":"string",
+         "example":"00:00:20",
+         "description":"For shoutdowns, the offset in the recording for this call. Shoutdown recordings may include more than one call Record"
+      },
+      "site":{
+         "type":"string",
+         "description":"The location / ID of the platform to uniquely identify it."
+      },
+      "direction":{
+         "type":"string",
+         "enum":[
+            "inbound",
+            "outbound"
+         ]
+      },
+      "state":{
+         "type":"string",
+         "example":"ConnectionCleared",
+         "description":"The state of the communication when the record was generated"
+      },
+      "duration":{
+         "type":"integer",
+         "example":28590,
+         "description":"The duration of the call in milliseconds"
+      },
+      "platform":{
+         "type":"string",
+         "example":"cisco",
+         "description":"The actual platform used for example telephony platforms could be could be Cisco, Avaya, BT ITS, IPC, Etradeal"
+      },
+      "startTimestamp":{
+         "type":"string",
+         "format":"date-time",
+         "example":"2016-06-18T07:50:30Z",
+         "description":"The time when the call started"
+      },
+      "endTimestamp":{
+         "type":"string",
+         "format":"date-time",
+         "example":"2016-06-18T07:50:30Z",
+         "description":"The time when the call terminated"
+      },
+      "participants":{
+         "type":"array",
+         "items":{
+            "$ref":"#/definitions/Participant"
+         }
+      },
+      "additionalProperty":{
+         "type":"array",
+         "items":{
+            "$ref":"http://schema.org/additionalProperty"
+         }
+      },
+      "variety":{
+         "type":"string",
+         "enum":[
+            "1-1",
+            "conference"
+         ]
+      },
+      "recordingChannel":{
+         "type":"integer",
+         "description":"The channel used for recording the communication"
+      },
+      "recordingFile":{
+         "type":"object",
+         "description":"Information about the recording associated with the call record",
+         "properties":{
+            "fileName":{
+               "type":"string",
+               "example":"sPK-20160517-163415-johnsmith-1165020038-1.m4a",
+               "description":"The name of the recording file as stored"
+            },
+            "fileLocation":{
+               "type":"string",
+               "format":"uri",
+               "description":"The location of the recording file"
+            },
+            "checksum":{
+               "type":"object",
+               "description":"Checksum of the recording file used to verify the file integrity. The hash values are compared and, if they match, confirms that the data has not been altered. It can be stored in one of the supported algorithms listed in type enum",
+               "required":[
+                  "hash"
+               ],
+               "properties":{
+                  "type":{
+                     "type":"string",
+                     "description":"Hash algorithm used on recording checksum.",
+                     "default":"MD5",
+                     "enum":[
+                        "MD5",
+                        "SHA-256",
+                        "SHA-384",
+                        "SHA-512",
+                        "SHA3-224",
+                        "SHA3-256",
+                        "SHA3-384",
+                        "SHA3-512"
+                     ]
+                  },
+                  "hash":{
+                     "type":"string",
+                     "example":"ca834d692f1d2ae659c69b72372c39a0",
+                     "description":"Checksum of the recording file in the selected hash type"
+                  }
+               }
+            },
+            "archiveDate":{
+               "type":"string",
+               "format":"date-time",
+               "description":"The date the file should be removed date-time format"
+            },
+            "quality":{
+               "type":"integer",
+               "description":"For voice recording data – the quality field associated with the file."
+            }
+         }
+      },
+      "linkedData":{
+         "type":"array",
+         "items":{
+            "$ref":"http://comchainalliance.org/schema/ComChain/MetaData"
+         }
+      }
+   }
+}

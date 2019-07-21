@@ -5,8 +5,11 @@
       "id":{
          "type":"string"
       },
-      "product":{
-         "$ref":"http://comchainalliance.org/schema/Product"
+      "channel":{
+         "$ref":"http://comchainalliance.org/schema/Channel"
+      },
+      "device":{
+         "$ref":"http://comchainalliance.org/schema/Device"
       },
       "provider":{
          "$ref":"http://comchainalliance.org/schema/Member"
