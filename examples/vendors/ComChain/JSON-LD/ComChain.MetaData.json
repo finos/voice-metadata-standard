@@ -116,6 +116,9 @@
             },
             "device":{
                "$ref":"http://comchainalliance.org/schema/Device"
+            },
+            "audioInterface":{
+               "$ref":"http://comchainalliance.org/schema/Device/interfaces"
             }
          }
       },
