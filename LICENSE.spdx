@@ -1,6 +1,5 @@
 SPDXVersion: SPDX-2.0
 DataLicense: CC0-1.0
-Creator: Leo Papadopoulos
 PackageName: Voice Metadata Standard
 PackageOriginator: Leo Papadopoulos
 PackageHomePage: https://github.com/finos-voice/voice-metadata-standard
