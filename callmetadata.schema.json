@@ -54,27 +54,17 @@
                     "example": "XYZ Energy",
                     "description": "The name on the consuming app for the connection"
                 },
-                "offset": {
-                    "type": "string",
-                    "example": "00:00:20",
-                    "description": "For shoutdowns, the offset in the recording for this call. Shoutdown recordings may include more than one call Record"
-                },
-                "duration": {
-                    "type": "integer",
-                    "example": 35,
-                    "description": "The duration of the call in seconds"
-                },
                 "startTime": {
                     "type": "string",
                     "format": "date-time",
                     "example": "2016-06-18T07:50:30Z",
-                    "description": "The time when the call started"
+                    "description": "Date and time when this call record was started"
                 },
                 "stopTime": {
                     "type": "string",
                     "format": "date-time",
                     "example": "2016-06-18T08:05:15Z",
-                    "description": "The time when the call terminated"
+                    "description": "Date and time when this call record was finished"
                 },
                 "participants": {
                     "type": "array",
@@ -110,10 +100,10 @@
             ],
             "description": "The device as used to handle the call"
         },
-        "callStartTime": {
+        "recordingStartTime": {
             "type": "string",
             "format": "date-time",
-            "description": "Start time of the call in ISO 8601 UTC time time format",
+            "description": "Start date and time of the recording in ISO 8601 UTC time format",
             "example": "2016-06-18T07:50:30Z"
         },
         "callDirection": {
