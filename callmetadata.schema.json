@@ -209,6 +209,11 @@
                 }
             }
         },
+        "source": {
+            "type": "object",
+            "description": "Object describing the participant that started the call",
+            "$ref": "#/definitions/participant"
+        },
         "participants": {
             "type": "array",
             "items": {
