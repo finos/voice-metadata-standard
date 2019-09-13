@@ -20,6 +20,24 @@
                     "example": "sip:9991234567@voip-provider.net",
                     "description": "The address of the participant"
                 },
+                "startTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "example": "2016-06-18T07:50:30Z",
+                    "description": "Date and time when the participant was requested to participate on the call"
+                },
+                "joinTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "example": "2016-06-18T07:50:30Z",
+                    "description": "Date and time when the participant joined the call"
+                },
+                "endTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "example": "2016-06-18T08:15:15Z",
+                    "description": "Date and time when the participant leaved the call"
+                },
                 "firmName": {
                     "type": "string",
                     "example": "XYZ Firm",
