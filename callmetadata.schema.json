@@ -216,6 +216,7 @@
         },
         "participants": {
             "type": "array",
+            "description": "List of participant objects describing the other parts on the call",
             "items": {
                 "$ref": "#/definitions/participant"
             },
