@@ -7,8 +7,19 @@
     "definitions": {
         "participant": {
             "type": "object",
-            "description": "Specific details about the farEndUsers (the other end of the call)",
+            "description": "Specific details about a participant of the call",
+            "additionalProperties": true,
             "properties": {
+                "name": {
+                    "type": "string",
+                    "example": "Steve Jones",
+                    "description": "Full name of the participant on the call"
+                },
+                "address": {
+                    "type": "string",
+                    "example": "sip:9991234567@voip-provider.net",
+                    "description": "The address of the participant"
+                },
                 "firmName": {
                     "type": "string",
                     "example": "XYZ Firm",
