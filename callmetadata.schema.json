@@ -36,7 +36,7 @@
                     "type": "string",
                     "format": "date-time",
                     "example": "2016-06-18T08:15:15Z",
-                    "description": "Date and time when the participant leaved the call"
+                    "description": "Date and time when the participant exited the call"
                 },
                 "firmName": {
                     "type": "string",
