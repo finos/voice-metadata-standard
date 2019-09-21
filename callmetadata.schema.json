@@ -18,7 +18,7 @@
                 "address": {
                     "type": "string",
                     "example": "sip:9991234567@voip-provider.net",
-                    "description": "The address of the participant"
+                    "description": "The address of the participant. It can be a URL, a username or any other type of address used to reach this participant."
                 },
                 "startTime": {
                     "type": "string",
