@@ -52,11 +52,6 @@
                     "type": "string",
                     "example": "Energy Desk",
                     "description": "Name of the farEnd group for the call. It may changed by the farEnd Firm"
-                },
-                "farEndName": {
-                    "type": "string",
-                    "example": "Steve Jones",
-                    "description": "The name (first and last) of the farEnd User on the call"
                 }
             }
         },
