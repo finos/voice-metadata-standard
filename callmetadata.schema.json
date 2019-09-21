@@ -43,11 +43,6 @@
                     "example": "XYZ Firm",
                     "description": "Name of the farEnd firm on the call. If an internal call, the firmName can match the nearEnd firm"
                 },
-                "groupId": {
-                    "type": "integer",
-                    "example": 235,
-                    "description": "The internal ID used by consumer for the farEnd group. This will never change for the connection"
-                },
                 "groupName": {
                     "type": "string",
                     "example": "Energy Desk",
