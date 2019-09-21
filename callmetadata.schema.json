@@ -20,6 +20,16 @@
                     "example": "sip:9991234567@voip-provider.net",
                     "description": "The address of the participant. It can be a URL, a username or any other type of address used to reach this participant."
                 },
+                "groupName": {
+                    "type": "string",
+                    "example": "Energy Desk",
+                    "description": "Name of the participant's group on the call"
+                },
+                "firmName": {
+                    "type": "string",
+                    "example": "XYZ Firm",
+                    "description": "Name of the participant's firm on the call"
+                },
                 "startTime": {
                     "type": "string",
                     "format": "date-time",
@@ -37,16 +47,6 @@
                     "format": "date-time",
                     "example": "2016-06-18T08:15:15Z",
                     "description": "Date and time when the participant exited the call"
-                },
-                "firmName": {
-                    "type": "string",
-                    "example": "XYZ Firm",
-                    "description": "Name of the farEnd firm on the call. If an internal call, the firmName can match the nearEnd firm"
-                },
-                "groupName": {
-                    "type": "string",
-                    "example": "Energy Desk",
-                    "description": "Name of the farEnd group for the call. It may changed by the farEnd Firm"
                 }
             }
         },
