@@ -42,7 +42,7 @@
                     "example": "2016-06-18T07:50:30Z",
                     "description": "Date and time when the participant joined the call"
                 },
-                "endTime": {
+                "exitTime": {
                     "type": "string",
                     "format": "date-time",
                     "example": "2016-06-18T08:15:15Z",
