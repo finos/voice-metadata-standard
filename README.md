@@ -21,7 +21,7 @@ The project uses [JSON Schema](https://json-schema.org/) to describe and validat
 5. Push to the branch (`git push origin feature/fooBar`)
 6. Create a new Pull Request
 
-Checkout [FINOS Voice program](https://finosfoundation.atlassian.net/wiki/spaces/VOICE/overview) to start contributing.
+Checkout [FINOS Voice program](https://github.com/finos-voice/voice-program) to start contributing.
 
 The standard definition is on `callmetadata.schema.json`, all comments and PR's should be made against this file. 
 
