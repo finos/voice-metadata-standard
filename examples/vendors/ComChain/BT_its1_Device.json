@@ -1,0 +1,24 @@
+{
+   "@context":"http://comchainalliance.org/schema/",
+   "@type":"Device",
+   "id":"0xa6f5f9bfad230353b174ba5b83d070c90c272a44",
+   "identifier": "1@its1",
+   "interfaces": [
+         {
+            "identifier":"1@its1#01",
+            "label":"Left handset",
+            "type": "Left handset"
+         },
+         {
+            "identifier":"1@its1#02",
+            "label":"Right handset",
+            "type": "Right handset"
+         },
+         {
+            "identifier":"1@its1#00",
+            "label":"Microphone",
+            "type": "Microphone"
+         }
+   ]
+  
+}

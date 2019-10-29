@@ -1,0 +1,8 @@
+language: node_js
+node_js:
+  - '8'
+before_script:
+  - npm install -g ajv-cli prettier
+script:
+  - ajv compile -s callmetadata.schema.json
+  - prettier --check callmetadata.schema.json

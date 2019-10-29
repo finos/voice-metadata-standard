@@ -1,0 +1,198 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "http://finos.org/schemas/callmetadata.json",
+    "title": "Call Metadata Standard",
+    "description": "Meta data supporting dialtone, ringdown, and shoutdown calls",
+    "type": "object",
+    "definitions": {
+        "participant": {
+            "type": "object",
+            "description": "Specific details about the farEndUsers (the other end of the call)",
+            "properties": {
+                "firmName": {
+                    "type": "string",
+                    "example": "XYZ Firm",
+                    "description": "Name of the farEnd firm on the call. If an internal call, the firmName can match the nearEnd firm"
+                },
+                "groupId": {
+                    "type": "integer",
+                    "example": 235,
+                    "description": "The internal ID used by consumer for the farEnd group. This will never change for the connection"
+                },
+                "groupName": {
+                    "type": "string",
+                    "example": "Energy Desk",
+                    "description": "Name of the farEnd group for the call. It may changed by the farEnd Firm"
+                },
+                "farEndName": {
+                    "type": "string",
+                    "example": "Steve Jones",
+                    "description": "The name (first and last) of the farEnd User on the call"
+                }
+            }
+        },
+        "callRecord": {
+            "type": "object",
+            "properties": {
+                "connectionId": {
+                    "type": "string",
+                    "example": "sPK-20160517-163234",
+                    "description": "Identifier for the connection"
+                },
+                "groupId": {
+                    "type": "integer",
+                    "example": 365,
+                    "description": "The internal ID used for the group by the consumer. This will never change for the connection"
+                },
+                "groupName": {
+                    "type": "string",
+                    "example": "Nat Gas Desk",
+                    "description": "Name of the group for the call. It may changed by the nearEnd Firm"
+                },
+                "buttonName": {
+                    "type": "string",
+                    "example": "XYZ Energy",
+                    "description": "The name on the consuming app for the connection"
+                },
+                "startTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "example": "2016-06-18T07:50:30Z",
+                    "description": "Date and time when this call record was started"
+                },
+                "stopTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "example": "2016-06-18T08:05:15Z",
+                    "description": "Date and time when this call record was finished"
+                },
+                "participants": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/participant"
+                    },
+                    "default": []
+                }
+            }
+        }
+    },
+    "properties": {
+        "callRecordType": {
+            "type": "string",
+            "enum": [
+                "Shoutdown",
+                "Ringdown",
+                "Dialtone"
+            ],
+            "description": "The type of call that was made (dialtone, ringdown, shoutdown, etc)"
+        },
+        "callUUID": {
+            "type": "string",
+            "example": "fd5cee0fe0184142a4397c92cb71f73620170508224148",
+            "description": "Universally Unique Identifier for this call. Will be unique across all call records."
+        },
+        "audioInterface": {
+            "type": "string",
+            "enum": [
+                "left handset",
+                "microphone",
+                "right handset"
+            ],
+            "description": "The device as used to handle the call"
+        },
+        "recordingStartTime": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Start date and time of the recording in ISO 8601 UTC time format",
+            "example": "2016-06-18T07:50:30Z"
+        },
+        "callDirection": {
+            "type": "string",
+            "enum": [
+                "outgoing",
+                "incoming"
+            ],
+            "description": "Direction of call establishment",
+            "example": "outgoing"
+        },
+        "deviceInfo": {
+            "type": "object",
+            "description": "Information about the device that generated this call record",
+            "properties": {
+                "deviceID": {
+                    "type": "string",
+                    "description": "Identifier for the device",
+                    "example": "turret1"
+                }
+            }
+        },
+        "userInfo": {
+            "type": "object",
+            "description": "Information about the user who generated this call record",
+            "properties": {
+                "userName": {
+                    "type": "string",
+                    "description": "The username he used on this system",
+                    "example": "johnsmith"
+                },
+                "firmName": {
+                    "type": "string",
+                    "example": "ABC Trading",
+                    "description": "Company name of the user who generated the call"
+                },
+                "timeZoneOffset": {
+                    "type": "string",
+                    "example": "UTC -05:00:00",
+                    "description": "The UTC timezone offset for the user"
+                }
+            }
+        },
+        "recordingFile": {
+            "type": "object",
+            "description": "Information about the recording associated with the call record",
+            "properties": {
+                "fileName": {
+                    "type": "string",
+                    "example": "sPK-20160517-163415-johnsmith-1165020038-1.m4a",
+                    "description": "The name of the recording file as stored"
+                },
+                "checksum": {
+                    "type": "object",
+                    "description": "Checksum of the recording file used to verify the file integrity. The hash values are compared and, if they match, confirms that the data has not been altered. It can be stored in one of the supported algorithms listed in type enum",
+                    "required": [
+                        "hash"
+                    ],
+                    "properties": {
+                        "type": {
+                            "type": "string",
+                            "description": "Hash algorithm used on recording checksum.",
+                            "default": "MD5",
+                            "enum": [
+                                "MD5",
+                                "SHA-256",
+                                "SHA-384",
+                                "SHA-512",
+                                "SHA3-224",
+                                "SHA3-256",
+                                "SHA3-384",
+                                "SHA3-512"
+                            ]
+                        },
+                        "hash": {
+                            "type": "string",
+                            "example": "ca834d692f1d2ae659c69b72372c39a0",
+                            "description": "Checksum of the recording file in the selected hash type"
+                        }
+                    }
+                }
+            }
+        },
+        "callRecords": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/callRecord"
+            },
+            "default": []
+        }
+    }
+}
