@@ -6,7 +6,7 @@
 
 # Voice Metadata Standard
 
-This is a project from [FINOS Voice program](https://finosfoundation.atlassian.net/wiki/spaces/VOICE/overview) to define a standard for call metadata. 
+This is a project from [FINOS Voice program](https://github.com/finos-voice/voice-program) to define a standard for call metadata. 
 
 This includes call details, voice recordings, and transcribed voice for all types of calls. The goal being that consumers can design to one interface and always be able to consume data from any voice provider. The ultimate goal is that this standard is adopted for all producers and consumers of call metadata.
 
