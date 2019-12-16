@@ -145,33 +145,39 @@
         "communicationRecord": {
             "type": "object",
             "properties": {
-                "callRecordType": {
+                "type": {
                     "type": "string",
-                    "enum": [
-                        "Shoutdown",
-                        "Ringdown",
-                        "Dialtone"
-                    ],
-                    "description": "The type of call that was made (dialtone, ringdown, shoutdown, etc)"
+                    "enum":[
+                      "Shoutdown",
+                      "Ringdown",
+                      "Dialtone",
+                      "SMS",
+                      "VoiceRecorder",
+                      "Transcription",
+                      "Audit",
+                      "IM",
+                      "Other"
+                   ],
+                    "description": "The type of communication service which is populated in this JSON (dialtone, ringdown, SMS, , etc)"
                 },
-                "callUUID": {
+                "comUUID": {
                     "type": "string",
                     "example": "fd5cee0fe0184142a4397c92cb71f73620170508224148",
-                    "description": "Universally Unique Identifier for this call. Will be unique across all call records."
+                    "description": "Universally Unique Identifier for this communication for a given participant. Will be unique across all call records."
                 },
-                "recordingStartTime": {
+                "startTime": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Start date and time of the recording in ISO 8601 UTC time format",
+                    "description": "The time when the communication started",
                     "example": "2016-06-18T07:50:30Z"
                 },
-                "callDirection": {
+                "direction": {
                     "type": "string",
                     "enum": [
                         "outgoing",
                         "incoming"
                     ],
-                    "description": "Direction of call establishment",
+                    "description": "Direction of communication establishment",
                     "example": "outgoing"
                 }
             }
