@@ -102,7 +102,7 @@
                 }
             }
         },
-        "recordingFile": {
+        "comFile": {
             "type": "object",
             "description": "Information about the recording associated with the call record",
             "properties": {
@@ -110,6 +110,20 @@
                     "type": "string",
                     "example": "sPK-20160517-163415-johnsmith-1165020038-1.m4a",
                     "description": "The name of the recording file as stored"
+                },
+                "fileLocation": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "The location of the file"
+                },
+                "archiveDate": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "The date the file should be removed date-time format"
+                },
+                "quality": {
+                    "type": "integer",
+                    "description": "Any data providing quality stats on the file.  For example for Voice Recording or Transcription details may be provided defining the suggested qulaity of the file."
                 },
                 "checksum": {
                     "type": "object",
