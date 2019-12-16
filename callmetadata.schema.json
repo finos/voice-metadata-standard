@@ -9,7 +9,7 @@
          "type":"object",
          "properties":{
             "state":{
-               "type":"sting",
+               "type":"string",
                "description":"name of the latest state of the current communication: CallOriginated, CallDelivered, CallEstablished, ect. Could be an enum with defined states. ",
                "example":"CallDelivered"
             },
