@@ -5,89 +5,89 @@
     "description": "Meta data supporting dialtone, ringdown, and shoutdown calls",
     "type": "object",
     "definitions": {
-        "states":{
-         "type":"object",
-         "properties":{
-            "state":{
-               "type":"string",
-               "description":"name of the latest state of the current communication: CallOriginated, CallDelivered, CallEstablished, ect. Could be an enum with defined states. ",
-               "example":"CallDelivered"
-            },
-            "time":{
-               "type":"string",
-               "format":"date-time",
-               "description":"Date and time when the state changed for the given participant",
-               "example":"2016-06-18T08:05:15Z"
-            },
-            "duration":{
-               "type":"integer",
-               "description":"Time in milliseconds how of how long the call has been in previous states for the given participant",
-               "example":27978
+        "states": {
+            "type": "object",
+            "properties": {
+                "state": {
+                    "type": "string",
+                    "description": "name of the latest state of the current communication: CallOriginated, CallDelivered, CallEstablished, ect. Could be an enum with defined states. ",
+                    "example": "CallDelivered"
+                },
+                "time": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Date and time when the state changed for the given participant",
+                    "example": "2016-06-18T08:05:15Z"
+                },
+                "duration": {
+                    "type": "integer",
+                    "description": "Time in milliseconds how of how long the call has been in previous states for the given participant",
+                    "example": 27978
+                }
             }
-         }
-      },
-      "member":{
-         "name":{
-            "type":"string",
-            "example":"Steve Jones",
-            "description":"Name of the participant communicating as defined in schema.org"
-         },
-         "groupName":{
-            "type":"string",
-            "example":"Energy Desk",
-            "description":"Name of the group for which the participant is representing in the communication"
-         },
-         "firmName":{
-            "type":"string",
-            "example":"XYZ Firm",
-            "description":"Name of the participant's firm represnted in the communication"
-         },
-         "timeZoneOffset":{
-            "type":"string",
-            "example":"UTC -05:00:00",
-            "description":"The UTC timezone offset for the participant"
-         }
-      },
-      "participant":{
-         "type":"object",
-         "description":"Specific details about a participant in a given communication",
-         "properties":{
-            "member":{
-               "$ref":"#/definitions/member"
+        },
+        "member": {
+            "name": {
+                "type": "string",
+                "example": "Steve Jones",
+                "description": "Name of the participant communicating as defined in schema.org"
             },
-            "involvement":{
-               "type":"string",
-               "description":"How the participant joined the communication. Did they initiate it, receieve a request or join an ongoing communication?",
-               "enum":[
-                  "source",
-                  "destination",
-                  "participant"
-               ]
+            "groupName": {
+                "type": "string",
+                "example": "Energy Desk",
+                "description": "Name of the group for which the participant is representing in the communication"
             },
-            "address":{
-               "type":"string",
-               "example":"sip:9991234567@voip-provider.net",
-               "description":"The address of the participant. It can be a URL, a username or any other type of address used to reach this participant."
+            "firmName": {
+                "type": "string",
+                "example": "XYZ Firm",
+                "description": "Name of the participant's firm represnted in the communication"
             },
-            "joinTime":{
-               "type":"string",
-               "format":"date-time",
-               "example":"2016-06-18T07:50:30Z",
-               "description":"Date and time when the participant joined the conversation"
-            },
-            "exitTime":{
-               "type":"string",
-               "format":"date-time",
-               "example":"2016-06-18T08:15:15Z",
-               "description":"Date and time when the participant exited the conversation"
-            },
-            "states":{
-               "type":"array",
-               "items":{
-                  "$ref":"#/definitions/states"
-               }
+            "timeZoneOffset": {
+                "type": "string",
+                "example": "UTC -05:00:00",
+                "description": "The UTC timezone offset for the participant"
             }
-          }
+        },
+        "participant": {
+            "type": "object",
+            "description": "Specific details about a participant in a given communication",
+            "properties": {
+                "member": {
+                    "$ref": "#/definitions/member"
+                },
+                "involvement": {
+                    "type": "string",
+                    "description": "How the participant joined the communication. Did they initiate it, receieve a request or join an ongoing communication?",
+                    "enum": [
+                        "source",
+                        "destination",
+                        "participant"
+                    ]
+                },
+                "address": {
+                    "type": "string",
+                    "example": "sip:9991234567@voip-provider.net",
+                    "description": "The address of the participant. It can be a URL, a username or any other type of address used to reach this participant."
+                },
+                "joinTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "example": "2016-06-18T07:50:30Z",
+                    "description": "Date and time when the participant joined the conversation"
+                },
+                "exitTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "example": "2016-06-18T08:15:15Z",
+                    "description": "Date and time when the participant exited the conversation"
+                },
+                "states": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/states"
+                    }
+                }
+            }
         },
         "callRecord": {
             "type": "object",
