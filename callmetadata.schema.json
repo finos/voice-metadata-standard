@@ -147,17 +147,17 @@
             "properties": {
                 "type": {
                     "type": "string",
-                    "enum":[
-                      "Shoutdown",
-                      "Ringdown",
-                      "Dialtone",
-                      "SMS",
-                      "VoiceRecorder",
-                      "Transcription",
-                      "Audit",
-                      "IM",
-                      "Other"
-                   ],
+                    "enum": [
+                        "Shoutdown",
+                        "Ringdown",
+                        "Dialtone",
+                        "SMS",
+                        "VoiceRecorder",
+                        "Transcription",
+                        "Audit",
+                        "IM",
+                        "Other"
+                    ],
                     "description": "The type of communication service which is populated in this JSON (dialtone, ringdown, SMS, , etc)"
                 },
                 "comUUID": {
