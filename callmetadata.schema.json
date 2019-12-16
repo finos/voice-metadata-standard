@@ -91,44 +91,6 @@
         }
     },
     "properties": {
-        "callRecordType": {
-            "type": "string",
-            "enum": [
-                "Shoutdown",
-                "Ringdown",
-                "Dialtone"
-            ],
-            "description": "The type of call that was made (dialtone, ringdown, shoutdown, etc)"
-        },
-        "callUUID": {
-            "type": "string",
-            "example": "fd5cee0fe0184142a4397c92cb71f73620170508224148",
-            "description": "Universally Unique Identifier for this call. Will be unique across all call records."
-        },
-        "audioInterface": {
-            "type": "string",
-            "enum": [
-                "left handset",
-                "microphone",
-                "right handset"
-            ],
-            "description": "The device as used to handle the call"
-        },
-        "recordingStartTime": {
-            "type": "string",
-            "format": "date-time",
-            "description": "Start date and time of the recording in ISO 8601 UTC time format",
-            "example": "2016-06-18T07:50:30Z"
-        },
-        "callDirection": {
-            "type": "string",
-            "enum": [
-                "outgoing",
-                "incoming"
-            ],
-            "description": "Direction of call establishment",
-            "example": "outgoing"
-        },
         "deviceInfo": {
             "type": "object",
             "description": "Information about the device that generated this call record",
@@ -182,7 +144,37 @@
         },
         "communicationRecord": {
             "type": "object",
-            "properties": {}
+            "properties": {
+                "callRecordType": {
+                    "type": "string",
+                    "enum": [
+                        "Shoutdown",
+                        "Ringdown",
+                        "Dialtone"
+                    ],
+                    "description": "The type of call that was made (dialtone, ringdown, shoutdown, etc)"
+                },
+                "callUUID": {
+                    "type": "string",
+                    "example": "fd5cee0fe0184142a4397c92cb71f73620170508224148",
+                    "description": "Universally Unique Identifier for this call. Will be unique across all call records."
+                },
+                "recordingStartTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Start date and time of the recording in ISO 8601 UTC time format",
+                    "example": "2016-06-18T07:50:30Z"
+                },
+                "callDirection": {
+                    "type": "string",
+                    "enum": [
+                        "outgoing",
+                        "incoming"
+                    ],
+                    "description": "Direction of call establishment",
+                    "example": "outgoing"
+                }
+            }
         }
     }
 }
