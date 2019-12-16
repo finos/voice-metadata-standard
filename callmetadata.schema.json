@@ -184,27 +184,6 @@
                 }
             }
         },
-        "userInfo": {
-            "type": "object",
-            "description": "Information about the user who generated this call record",
-            "properties": {
-                "userName": {
-                    "type": "string",
-                    "description": "The username he used on this system",
-                    "example": "johnsmith"
-                },
-                "firmName": {
-                    "type": "string",
-                    "example": "ABC Trading",
-                    "description": "Company name of the user who generated the call"
-                },
-                "timeZoneOffset": {
-                    "type": "string",
-                    "example": "UTC -05:00:00",
-                    "description": "The UTC timezone offset for the user"
-                }
-            }
-        },
         "recordingFile": {
             "type": "object",
             "description": "Information about the recording associated with the call record",
