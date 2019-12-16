@@ -177,12 +177,32 @@
       },
       "deviceInfo":{
          "type":"object",
-         "description":"Information about the device that generated this call record",
+         "description":"Information about the device that generated this record",
          "properties":{
             "deviceID":{
                "type":"string",
                "description":"Identifier for the device",
                "example":"turret1"
+            },
+            "deviceInterface":{
+               "type":"string",
+               "enum":[
+                  "left handset",
+                  "microphone",
+                  "right handset",
+                  "other"
+               ],
+               "description":"The device as used to handle the communication"
+            },
+            "buttonName":{
+               "type":"string",
+               "example":"XYZ Energy",
+               "description":"The name on the consuming app for the connection"
+            },
+            "channelID":{
+               "type":"string",
+               "example":"C3013-ptSEP003094C3E049",
+               "description":"Identifier for the resource (channel, extension, ect) "
             }
          }
       },
