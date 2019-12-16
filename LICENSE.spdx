@@ -1,0 +1,6 @@
+SPDXVersion: SPDX-2.0
+DataLicense: CC0-1.0
+PackageName: Voice Metadata Standard
+PackageOriginator: Vitor Espíndola <vitor.espindola@byne.com.br>
+PackageHomePage: https://github.com/finos/voice-metadata-standard
+PackageLicenseDeclared: Apache-2.0
