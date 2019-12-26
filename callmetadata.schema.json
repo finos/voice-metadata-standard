@@ -30,6 +30,15 @@
                     "example": "XYZ Firm",
                     "description": "Name of the participant's firm on the call"
                 },
+                "involvement": {
+                    "type": "string",
+                    "description": "How the participant joined the communication. Did they initiate it(source), receieve a request(destination) or join an ongoing communication(participant)?",
+                    "enum": [
+                        "source",
+                        "destination",
+                        "participant"
+                    ]
+                },
                 "startTime": {
                     "type": "string",
                     "format": "date-time",
@@ -198,11 +207,6 @@
                     }
                 }
             }
-        },
-        "source": {
-            "type": "object",
-            "description": "Object describing the participant that started the call",
-            "$ref": "#/definitions/participant"
         },
         "participants": {
             "type": "array",
