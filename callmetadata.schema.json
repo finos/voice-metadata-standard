@@ -7,27 +7,55 @@
     "definitions": {
         "participant": {
             "type": "object",
-            "description": "Specific details about the farEndUsers (the other end of the call)",
+            "description": "Specific details about a participant of the call",
+            "additionalProperties": true,
             "properties": {
-                "firmName": {
+                "name": {
                     "type": "string",
-                    "example": "XYZ Firm",
-                    "description": "Name of the farEnd firm on the call. If an internal call, the firmName can match the nearEnd firm"
+                    "example": "Steve Jones",
+                    "description": "Name of the participant on the call"
                 },
-                "groupId": {
-                    "type": "integer",
-                    "example": 235,
-                    "description": "The internal ID used by consumer for the farEnd group. This will never change for the connection"
+                "address": {
+                    "type": "string",
+                    "example": "sip:9991234567@voip-provider.net",
+                    "description": "The address of the participant. It can be a URL, a username or any other type of address used to reach this participant."
                 },
                 "groupName": {
                     "type": "string",
                     "example": "Energy Desk",
-                    "description": "Name of the farEnd group for the call. It may changed by the farEnd Firm"
+                    "description": "Name of the participant's group on the call"
                 },
-                "farEndName": {
+                "firmName": {
                     "type": "string",
-                    "example": "Steve Jones",
-                    "description": "The name (first and last) of the farEnd User on the call"
+                    "example": "XYZ Firm",
+                    "description": "Name of the participant's firm on the call"
+                },
+                "involvement": {
+                    "type": "string",
+                    "description": "How the participant joined the communication. Did they initiate it(source), receieve a request(destination) or join an ongoing communication(participant)?",
+                    "enum": [
+                        "source",
+                        "destination",
+                        "participant"
+                    ]
+                },
+                "startTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "example": "2016-06-18T07:50:30Z",
+                    "description": "Date and time when the participant was requested to participate on the call"
+                },
+                "joinTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "example": "2016-06-18T07:50:30Z",
+                    "description": "Date and time when the participant joined the call"
+                },
+                "exitTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "example": "2016-06-18T08:15:15Z",
+                    "description": "Date and time when the participant exited the call"
                 }
             }
         },
@@ -65,13 +93,6 @@
                     "format": "date-time",
                     "example": "2016-06-18T08:05:15Z",
                     "description": "Date and time when this call record was finished"
-                },
-                "participants": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/participant"
-                    },
-                    "default": []
                 }
             }
         }
@@ -186,6 +207,14 @@
                     }
                 }
             }
+        },
+        "participants": {
+            "type": "array",
+            "description": "List of participant objects describing the other parts on the call",
+            "items": {
+                "$ref": "#/definitions/participant"
+            },
+            "default": []
         },
         "callRecords": {
             "type": "array",
