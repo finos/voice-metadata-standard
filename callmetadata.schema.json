@@ -25,7 +25,7 @@
                     "example": "Energy Desk",
                     "description": "Name of the participant's group on the call"
                 },
-                "firmName": {
+                "firmname": {
                     "type": "string",
                     "example": "XYZ Firm",
                     "description": "Name of the participant's firm on the call"
