@@ -5,30 +5,40 @@
     "description": "Meta data supporting dialtone, ringdown, and shoutdown calls",
     "type": "object",
     "definitions": {
+        "member": {
+            "name": {
+                "type": "string",
+                "example": "Steve Jones",
+                "description": "Name of the participant communicating"
+            },
+            "groupName": {
+                "type": "string",
+                "example": "Energy Desk",
+                "description": "Name of the group for which the participant is representing in the communication"
+            },
+            "firmName": {
+                "type": "string",
+                "example": "XYZ Firm",
+                "description": "Name of the participant's firm represented in the communication"
+            },
+            "timeZoneOffset": {
+                "type": "string",
+                "example": "UTC -05:00:00",
+                "description": "The UTC timezone offset for the participant"
+            }
+        },
         "participant": {
             "type": "object",
             "description": "Specific details about a participant of the call",
             "additionalProperties": true,
             "properties": {
-                "name": {
-                    "type": "string",
-                    "example": "Steve Jones",
-                    "description": "Name of the participant on the call"
+                "member": {
+                    "$ref": "#/definitions/member"
                 },
                 "address": {
                     "type": "string",
                     "example": "sip:9991234567@voip-provider.net",
                     "description": "The address of the participant. It can be a URL, a username or any other type of address used to reach this participant."
-                },
-                "groupName": {
-                    "type": "string",
-                    "example": "Energy Desk",
-                    "description": "Name of the participant's group on the call"
-                },
-                "firmName": {
-                    "type": "string",
-                    "example": "XYZ Firm",
-                    "description": "Name of the participant's firm on the call"
                 },
                 "involvement": {
                     "type": "string",
