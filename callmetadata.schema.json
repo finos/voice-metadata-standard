@@ -5,6 +5,27 @@
     "description": "Meta data supporting dialtone, ringdown, and shoutdown calls",
     "type": "object",
     "definitions": {
+        "state": {
+            "type": "object",
+            "properties": {
+                "state": {
+                    "type": "string",
+                    "description": "Name of the latest state of the current communication: CallOriginated, CallDelivered, CallEstablished, ect. Could be an enum with defined states. ",
+                    "example": "CallDelivered"
+                },
+                "time": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Date and time when the state changed for the given participant",
+                    "example": "2016-06-18T08:05:15Z"
+                },
+                "duration": {
+                    "type": "integer",
+                    "description": "Time in milliseconds how of how long the call has been in previous states for the given participant",
+                    "example": 27978
+                }
+            }
+        },
         "member": {
             "name": {
                 "type": "string",
@@ -34,6 +55,12 @@
             "properties": {
                 "member": {
                     "$ref": "#/definitions/member"
+                },
+                "states": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/state"
+                    }
                 },
                 "address": {
                     "type": "string",
