@@ -5,13 +5,16 @@
     "description": "Meta data supporting dialtone, ringdown, and shoutdown calls",
     "type": "object",
     "definitions": {
-        "state": {
+        "event": {
             "type": "object",
+            "required": [
+                "state",
+                "time"
+            ],
             "properties": {
                 "state": {
                     "type": "string",
-                    "description": "Name of the latest state of the current communication: CallOriginated, CallDelivered, CallEstablished, ect. Could be an enum with defined states. ",
-                    "example": "CallDelivered"
+                    "description": "Name of the latest state of the current communication, for example: CallOriginated, CallDelivered, CallEstablished"
                 },
                 "time": {
                     "type": "string",
@@ -21,7 +24,7 @@
                 },
                 "duration": {
                     "type": "integer",
-                    "description": "Time in milliseconds how of how long the call has been in previous states for the given participant",
+                    "description": "Total time in milliseconds of the communication to reach the current state for the given participant",
                     "example": 27978
                 }
             }
@@ -56,10 +59,10 @@
                 "member": {
                     "$ref": "#/definitions/member"
                 },
-                "states": {
+                "events": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/state"
+                        "$ref": "#/definitions/event"
                     }
                 },
                 "address": {
