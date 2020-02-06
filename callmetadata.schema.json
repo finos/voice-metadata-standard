@@ -21,11 +21,6 @@
                     "format": "date-time",
                     "description": "Date and time when the state changed for the given participant",
                     "example": "2016-06-18T08:05:15Z"
-                },
-                "duration": {
-                    "type": "integer",
-                    "description": "Total time in milliseconds of the communication to reach the current state for the given participant",
-                    "example": 27978
                 }
             }
         },
