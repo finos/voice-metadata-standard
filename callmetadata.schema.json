@@ -187,44 +187,6 @@
         }
     },
     "properties": {
-        "callRecordType": {
-            "type": "string",
-            "enum": [
-                "Shoutdown",
-                "Ringdown",
-                "Dialtone"
-            ],
-            "description": "The type of call that was made (dialtone, ringdown, shoutdown, etc)"
-        },
-        "callUUID": {
-            "type": "string",
-            "example": "fd5cee0fe0184142a4397c92cb71f73620170508224148",
-            "description": "Universally Unique Identifier for this call. Will be unique across all call records."
-        },
-        "audioInterface": {
-            "type": "string",
-            "enum": [
-                "left handset",
-                "microphone",
-                "right handset"
-            ],
-            "description": "The device as used to handle the call"
-        },
-        "recordingStartTime": {
-            "type": "string",
-            "format": "date-time",
-            "description": "Start date and time of the recording in ISO 8601 UTC time format",
-            "example": "2016-06-18T07:50:30Z"
-        },
-        "callDirection": {
-            "type": "string",
-            "enum": [
-                "outgoing",
-                "incoming"
-            ],
-            "description": "Direction of call establishment",
-            "example": "outgoing"
-        },
         "deviceInfo": {
             "type": "object",
             "description": "Information about the device that generated this call record",
@@ -233,27 +195,6 @@
                     "type": "string",
                     "description": "Identifier for the device",
                     "example": "turret1"
-                }
-            }
-        },
-        "userInfo": {
-            "type": "object",
-            "description": "Information about the user who generated this call record",
-            "properties": {
-                "userName": {
-                    "type": "string",
-                    "description": "The username he used on this system",
-                    "example": "johnsmith"
-                },
-                "firmName": {
-                    "type": "string",
-                    "example": "ABC Trading",
-                    "description": "Company name of the user who generated the call"
-                },
-                "timeZoneOffset": {
-                    "type": "string",
-                    "example": "UTC -05:00:00",
-                    "description": "The UTC timezone offset for the user"
                 }
             }
         },
@@ -271,12 +212,94 @@
             },
             "default": []
         },
-        "callRecords": {
-            "type": "array",
-            "items": {
-                "$ref": "#/definitions/callRecord"
-            },
-            "default": []
+        "communicationRecord": {
+            "type": "object",
+            "properties": {
+                "callRecordType": {
+                    "type": "string",
+                    "enum": [
+                        "Shoutdown",
+                        "Ringdown",
+                        "Dialtone"
+                    ],
+                    "description": "The type of call that was made (dialtone, ringdown, shoutdown, etc)"
+                },
+                "callUUID": {
+                    "type": "string",
+                    "example": "fd5cee0fe0184142a4397c92cb71f73620170508224148",
+                    "description": "Universally Unique Identifier for this call. Will be unique across all call records."
+                },
+                "startTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "The time when the communication started",
+                    "example": "2016-06-18T07:50:30Z"
+                },
+                "endTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "example": "2016-06-18T07:50:30Z",
+                    "description": "The time when the communication terminated"
+                },
+                "direction": {
+                    "type": "string",
+                    "enum": [
+                        "outgoing",
+                        "incoming"
+                    ],
+                    "description": "Direction of communication establishment",
+                    "example": "outgoing"
+                },
+                "universalID": {
+                    "type": "string",
+                    "example": "fd5cee0fe0184142a4397c92cb71f73620170508224148",
+                    "description": "A ID the underlying platform may provide to link multiple calls within the system. For example where multiple calls are in conference some systems may link them with a universal call id."
+                },
+                "csID": {
+                    "type": "string",
+                    "example": "7551/1",
+                    "description": "The ID generated by the platform managing the communication for the target user."
+                },
+                "activeDuration": {
+                    "type": "integer",
+                    "example": 28590,
+                    "description": "The duration the participant was actively engaged in the communication (for example removing hold states), in milliseconds"
+                },
+                "state": {
+                    "$ref": "#/definitions/event",
+                    "description": "The state of the communication when the record was generated"
+                },
+                "variety": {
+                    "type": "string",
+                    "enum": [
+                        "1-1",
+                        "group"
+                    ]
+                },
+                "platform": {
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "type": "string",
+                            "example": "cisco",
+                            "description": "The actual platform used for example telephony platforms could be could be Cisco, Avaya, BT ITS, IPC, Ect"
+                        },
+                        "id": {
+                            "type": "string",
+                            "description": "The location / ID of the platform to uniquely identify it."
+                        }
+                    }
+                },
+                "audioInterface": {
+                    "type": "string",
+                    "enum": [
+                        "left handset",
+                        "microphone",
+                        "right handset"
+                    ],
+                    "description": "The device as used to handle the call"
+                }
+            }
         }
     }
 }
