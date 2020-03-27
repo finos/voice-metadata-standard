@@ -130,6 +130,60 @@
                     "description": "Date and time when this call record was finished"
                 }
             }
+        },
+        "comFile": {
+            "type": "object",
+            "description": "Information about the recording associated with the call record",
+            "properties": {
+                "fileName": {
+                    "type": "string",
+                    "example": "sPK-20160517-163415-johnsmith-1165020038-1.m4a",
+                    "description": "The name of the recording file as stored"
+                },
+                "fileLocation": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "The location of the file"
+                },
+                "archiveDate": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "The date the file should be removed date-time format"
+                },
+                "quality": {
+                    "type": "integer",
+                    "description": "Any data providing quality stats on the file.  For example for Voice Recording or Transcription details may be provided defining the suggested qulaity of the file."
+                },
+                "checksum": {
+                    "type": "object",
+                    "description": "Checksum of the recording file used to verify the file integrity. The hash values are compared and, if they match, confirms that the data has not been altered. It can be stored in one of the supported algorithms listed in type enum",
+                    "required": [
+                        "hash"
+                    ],
+                    "properties": {
+                        "type": {
+                            "type": "string",
+                            "description": "Hash algorithm used on recording checksum.",
+                            "default": "MD5",
+                            "enum": [
+                                "MD5",
+                                "SHA-256",
+                                "SHA-384",
+                                "SHA-512",
+                                "SHA3-224",
+                                "SHA3-256",
+                                "SHA3-384",
+                                "SHA3-512"
+                            ]
+                        },
+                        "hash": {
+                            "type": "string",
+                            "example": "ca834d692f1d2ae659c69b72372c39a0",
+                            "description": "Checksum of the recording file in the selected hash type"
+                        }
+                    }
+                }
+            }
         }
     },
     "properties": {
@@ -203,44 +257,10 @@
                 }
             }
         },
-        "recordingFile": {
-            "type": "object",
-            "description": "Information about the recording associated with the call record",
-            "properties": {
-                "fileName": {
-                    "type": "string",
-                    "example": "sPK-20160517-163415-johnsmith-1165020038-1.m4a",
-                    "description": "The name of the recording file as stored"
-                },
-                "checksum": {
-                    "type": "object",
-                    "description": "Checksum of the recording file used to verify the file integrity. The hash values are compared and, if they match, confirms that the data has not been altered. It can be stored in one of the supported algorithms listed in type enum",
-                    "required": [
-                        "hash"
-                    ],
-                    "properties": {
-                        "type": {
-                            "type": "string",
-                            "description": "Hash algorithm used on recording checksum.",
-                            "default": "MD5",
-                            "enum": [
-                                "MD5",
-                                "SHA-256",
-                                "SHA-384",
-                                "SHA-512",
-                                "SHA3-224",
-                                "SHA3-256",
-                                "SHA3-384",
-                                "SHA3-512"
-                            ]
-                        },
-                        "hash": {
-                            "type": "string",
-                            "example": "ca834d692f1d2ae659c69b72372c39a0",
-                            "description": "Checksum of the recording file in the selected hash type"
-                        }
-                    }
-                }
+        "comFiles": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/comFile"
             }
         },
         "participants": {
