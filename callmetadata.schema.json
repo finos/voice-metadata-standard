@@ -96,12 +96,19 @@
         },
         "comFile": {
             "type": "object",
-            "description": "Information about the recording associated with the call record",
+            "required": [
+                "fileName"
+            ],
+            "description": "Information about the file associated with the communication record",
             "properties": {
+                "recordID": {
+                    "type": "string",
+                    "description": "The id of the file as stored"
+                },
                 "fileName": {
                     "type": "string",
                     "example": "sPK-20160517-163415-johnsmith-1165020038-1.m4a",
-                    "description": "The name of the recording file as stored"
+                    "description": "The name of the file as stored"
                 },
                 "fileLocation": {
                     "type": "string",
@@ -119,14 +126,14 @@
                 },
                 "checksum": {
                     "type": "object",
-                    "description": "Checksum of the recording file used to verify the file integrity. The hash values are compared and, if they match, confirms that the data has not been altered. It can be stored in one of the supported algorithms listed in type enum",
+                    "description": "Checksum of the file used to verify the file integrity. The hash values are compared and, if they match, confirms that the data has not been altered. It can be stored in one of the supported algorithms listed in type enum",
                     "required": [
                         "hash"
                     ],
                     "properties": {
                         "type": {
                             "type": "string",
-                            "description": "Hash algorithm used on recording checksum.",
+                            "description": "Hash algorithm used on file checksum.",
                             "default": "MD5",
                             "enum": [
                                 "MD5",
@@ -142,7 +149,7 @@
                         "hash": {
                             "type": "string",
                             "example": "ca834d692f1d2ae659c69b72372c39a0",
-                            "description": "Checksum of the recording file in the selected hash type"
+                            "description": "Checksum of the file in the selected hash type"
                         }
                     }
                 }
@@ -152,7 +159,7 @@
     "properties": {
         "deviceInfo": {
             "type": "object",
-            "description": "Information about the device that generated this call record",
+            "description": "Information about the device that generated this communication record",
             "properties": {
                 "deviceID": {
                     "type": "string",
@@ -184,19 +191,25 @@
         "communicationRecord": {
             "type": "object",
             "properties": {
-                "callRecordType": {
+                "type": {
                     "type": "string",
                     "enum": [
                         "Shoutdown",
                         "Ringdown",
-                        "Dialtone"
+                        "Dialtone",
+                        "SMS",
+                        "VoiceRecorder",
+                        "Transcription",
+                        "Audit",
+                        "IM",
+                        "Other"
                     ],
-                    "description": "The type of call that was made (dialtone, ringdown, shoutdown, etc)"
+                    "description": "The type of communication service which is populated in this JSON (dialtone, ringdown, SMS, , etc)"
                 },
-                "callUUID": {
+                "comUUID": {
                     "type": "string",
                     "example": "fd5cee0fe0184142a4397c92cb71f73620170508224148",
-                    "description": "Universally Unique Identifier for this call. Will be unique across all call records."
+                    "description": "Universally Unique Identifier for this communication for a given participant. Will be unique across all call records."
                 },
                 "startTime": {
                     "type": "string",
@@ -266,7 +279,7 @@
                         "microphone",
                         "right handset"
                     ],
-                    "description": "The device as used to handle the call"
+                    "description": "The device as used to handle the communication"
                 }
             }
         }
