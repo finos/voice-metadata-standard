@@ -191,19 +191,25 @@
         "communicationRecord": {
             "type": "object",
             "properties": {
-                "callRecordType": {
+                "type": {
                     "type": "string",
                     "enum": [
                         "Shoutdown",
                         "Ringdown",
-                        "Dialtone"
+                        "Dialtone",
+                        "SMS",
+                        "VoiceRecorder",
+                        "Transcription",
+                        "Audit",
+                        "IM",
+                        "Other"
                     ],
-                    "description": "The type of call that was made (dialtone, ringdown, shoutdown, etc)"
+                    "description": "The type of communication service which is populated in this JSON (dialtone, ringdown, SMS, , etc)"
                 },
-                "callUUID": {
+                "comUUID": {
                     "type": "string",
                     "example": "fd5cee0fe0184142a4397c92cb71f73620170508224148",
-                    "description": "Universally Unique Identifier for this call. Will be unique across all call records."
+                    "description": "Universally Unique Identifier for this communication for a given participant. Will be unique across all call records."
                 },
                 "startTime": {
                     "type": "string",
@@ -273,7 +279,7 @@
                         "microphone",
                         "right handset"
                     ],
-                    "description": "The device as used to handle the call"
+                    "description": "The device as used to handle the communication"
                 }
             }
         }
