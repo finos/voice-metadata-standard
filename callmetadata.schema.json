@@ -165,6 +165,25 @@
                     "type": "string",
                     "description": "Identifier for the device",
                     "example": "turret1"
+                },
+                "audioInterface": {
+                    "type": "string",
+                    "enum": [
+                        "left handset",
+                        "microphone",
+                        "right handset"
+                    ],
+                    "description": "The device as used to handle the communication"
+                },
+                "buttonName": {
+                    "type": "string",
+                    "example": "XYZ Energy",
+                    "description": "The name on the consuming app for the connection"
+                },
+                "channelID": {
+                    "type": "string",
+                    "example": "C3013-ptSEP003094C3E049",
+                    "description": "Identifier for the resource (channel, extension, ect) "
                 }
             }
         },
@@ -271,15 +290,6 @@
                             "description": "The location / ID of the platform to uniquely identify it."
                         }
                     }
-                },
-                "audioInterface": {
-                    "type": "string",
-                    "enum": [
-                        "left handset",
-                        "microphone",
-                        "right handset"
-                    ],
-                    "description": "The device as used to handle the communication"
                 }
             }
         }
