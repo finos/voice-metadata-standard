@@ -94,43 +94,6 @@
                 }
             }
         },
-        "callRecord": {
-            "type": "object",
-            "properties": {
-                "connectionId": {
-                    "type": "string",
-                    "example": "sPK-20160517-163234",
-                    "description": "Identifier for the connection"
-                },
-                "groupId": {
-                    "type": "integer",
-                    "example": 365,
-                    "description": "The internal ID used for the group by the consumer. This will never change for the connection"
-                },
-                "groupName": {
-                    "type": "string",
-                    "example": "Nat Gas Desk",
-                    "description": "Name of the group for the call. It may changed by the nearEnd Firm"
-                },
-                "buttonName": {
-                    "type": "string",
-                    "example": "XYZ Energy",
-                    "description": "The name on the consuming app for the connection"
-                },
-                "startTime": {
-                    "type": "string",
-                    "format": "date-time",
-                    "example": "2016-06-18T07:50:30Z",
-                    "description": "Date and time when this call record was started"
-                },
-                "stopTime": {
-                    "type": "string",
-                    "format": "date-time",
-                    "example": "2016-06-18T08:05:15Z",
-                    "description": "Date and time when this call record was finished"
-                }
-            }
-        },
         "comFile": {
             "type": "object",
             "description": "Information about the recording associated with the call record",
