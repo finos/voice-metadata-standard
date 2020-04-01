@@ -212,6 +212,12 @@
             },
             "default": []
         },
+        "linkedData": {
+          "type": "array",
+          "items": {
+            "$ref": "http://finos.org/schemas/callmetadata.json"
+          }
+        },
         "communicationRecord": {
             "type": "object",
             "properties": {
