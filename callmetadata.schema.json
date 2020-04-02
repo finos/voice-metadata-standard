@@ -4,6 +4,7 @@
     "title": "Call Metadata Standard",
     "description": "Meta data supporting dialtone, ringdown, and shoutdown calls",
     "type": "object",
+    "additionalProperties": true,
     "definitions": {
         "event": {
             "type": "object",
