@@ -23,7 +23,7 @@
                     "description": "Date and time when the state changed for the given participant",
                     "example": "2016-06-18T08:05:15Z"
                 },
-                 "audioInterface": {
+                "audioInterface": {
                     "type": "string",
                     "description": "The interface on the device used to handle the communication, for example:  ‘left handset’, ‘right handset’, ‘microphone’,‘speaker’”"
                 }
@@ -178,7 +178,7 @@
             }
         }
     },
-    "properties": { 
+    "properties": {
         "system": {
             "type": "object",
             "description": "The system capturing the communication record",
@@ -218,7 +218,7 @@
                     "description": "Identifier for the device used for the communication",
                     "example": "turret1"
                 },
-                 "audioInterface": {
+                "audioInterface": {
                     "type": "string",
                     "description": "The interface on the device used to handle the communication, for example:  ‘left handset’, ‘right handset’, ‘microphone’,‘speaker’”"
                 },
