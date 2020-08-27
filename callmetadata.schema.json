@@ -1,5 +1,5 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$schema": "http://json-schema.org/draft-08/schema#",
     "$id": "http://finos.org/schemas/callmetadata.json",
     "title": "Call Metadata Standard",
     "description": "Meta data supporting dialtone, ringdown, and shoutdown calls",
@@ -25,7 +25,7 @@
                 },
                 "audioInterface": {
                     "type": "string",
-                    "description": "The interface on the device used to handle the communication, for example:  ‘left handset’, ‘right handset’, ‘microphone’,‘speaker’”"
+                    "description": "The interface on the device used to handle the communication - it could change during the lifetime of the communication, for example:  ‘left handset’, ‘right handset’, ‘microphone’,‘speaker’”"
                 }
             }
         },
@@ -192,7 +192,7 @@
                     "type": "string",
                     "enum": [
                         "CTI",
-                        "EnterpriseVoice",
+                        "VoicePaltform",
                         "Mobile",
                         "VoiceRecorder",
                         "Transcription",
@@ -200,18 +200,18 @@
                         "SocialPlatform",
                         "Other"
                     ],
-                    "description": "The type of communication system which is populating the data in this JSON (EnterpriseVoice - a PaBX, Mobile - a mobile carrier)"
+                    "description": "The type of communication system which is populating the data in this JSON (VoicePlatform - a PaBX or other voice platform, Mobile - a mobile carrier)"
                 },
                 "name": {
                     "type": "string",
-                    "description": "Name of the system capturing the communication record",
+                    "description": "Name of the system providing the communication record",
                     "example": "CAS"
                 }
             }
         },
         "deviceInfo": {
             "type": "object",
-            "description": "Idntifying the perspective of the device the system is capturing the communication record about",
+            "description": "Identifying the perspective of the device the system is capturing the communication record about",
             "properties": {
                 "deviceID": {
                     "type": "string",
@@ -275,7 +275,7 @@
                         "VoiceCall",
                         "Other"
                     ],
-                    "description": "The type of communication which is populated in this JSON (coudl be the type of telephony or another communication type)"
+                    "description": "The type of communication which is populated in this JSON (could be the type of telephony or another communication type. )"
                 },
                 "variety": {
                     "type": "string",
