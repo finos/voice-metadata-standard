@@ -148,7 +148,7 @@
         },
         "healthCheck": {
             "type": "object",
-            "description": "",
+            "description": "Enabled test data to be passed into the system and highlighted so it is not treated as live data. Any components to be checked and the elements within can be populated to ensure all systems are operating as expected.",
             "properties": {
                 "component": {
                     "type": "object",
@@ -156,45 +156,35 @@
                     "properties": {
                         "id": {
                             "type": "string",
-                            "description": "TO DO"
+                            "description": "The ID of the system getting checked "
+                        },
+                        "systemType": {
+                            "type": "string",
+                            "description": "The type of system getting checked"
                         },
                         "name": {
                             "type": "string",
-                            "description": "TO DO"
+                            "description": "The name of the system getting checked"
                         }
                     }
                 },
-                "regStatus": {
+                "element": {
                     "type": "string",
-                    "description": "TO DO",
-                    "enum": [
-                        "full",
-                        "part",
-                        "none"
-                    ]
+                    "description": "The specific field getting checked that data exists"
                 },
-                "recStatus": {
+                "systemType": {
                     "type": "string",
-                    "description": "TO DO",
-                    "enum": [
-                        "full",
-                        "part",
-                        "none"
-                    ]
+                    "description": "The system type from where the data would have been generated."
                 },
-                "tscStatus": {
-                    "type": "boolean",
-                    "description": "TO DO"
-                },
-                "deviceConfiguration": {
-                    "type": "boolean",
-                    "description": "TO DO"
+                "configured": {
+                    "type": "string",
+                    "description": "True or False - defining whether the element has been configured to have information populated from the given system"
                 }
             }
         },
         "linkedData": {
             "type": "object",
-            "description": "TO DO",
+            "description": "Defines metadata from other systems which is related to the same communication.",
             "properties": {
                 "id": {
                     "type": "string",
@@ -260,7 +250,7 @@
                 },
                 "quality": {
                     "type": "integer",
-                    "description": "Any data providing quality stats on the file.  For example for Voice Recording or Transcription details may be provided defining the suggested qulaity of the file."
+                    "description": "Any data providing quality stats on the file.  For example for Voice Recording or Transcription details may be provided defining the suggested quality of the file."
                 },
                 "checksum": {
                     "type": "object",
@@ -313,7 +303,8 @@
                     "example": "CAS"
                 },
                 "location": {
-                    "$ref": "https://schema.org/PostalAddress",
+                    "@context": "https://schema.org",
+                    "@type": "PostalAddress",
                     "description": "Region of the system providing the communication record"
                 }
             }
